@@ -1,0 +1,21 @@
+@import 'variables';
+
+input,input:focus,input:hover,input:focus-visible{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: inherit;
+  border-radius: 4px;
+}
+.txt-input{
+  color: $yellow-light;
+  background-color: inherit;
+  border: 1px solid $yellow-light;
+  padding: 10px 20px;
+  transition: 0.5s all;
+  &:hover, &:focus{
+    color: $white;
+    border: 1px solid $yellow-light;
+    box-shadow: 0 0 10px $yellow;
+  }
+}

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/variables';
+@import 'assets/styles/button';
+@import 'assets/styles/form';
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+  font-weight: normal;
+  font-size: 16px;
+}
+body{
+  width: 100%;
+  min-height: 100vh;
+}
+
+

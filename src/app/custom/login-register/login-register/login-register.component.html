@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="form-container">
+    <div class="form-box">
+      <div class="box signin">
+        <h2>Hesabım mevcut.</h2>
+        <button (click)="swipeForms()" class="btn btn-signin">Giriş Yap</button>
+      </div>
+      <div class="box signup">
+        <h2>Hesabım yok.</h2>
+        <button (click)="swipeForms()" class="btn btn-signup">Üye Ol</button>
+      </div>
+    </div>
+    <div class="form-wrapper" [class]="isRegistered ? 'active' : ''">
+      <ng-container *ngIf="!isRegistered">
+        <app-login-form></app-login-form>
+      </ng-container>
+      <ng-container *ngIf="isRegistered">
+        <app-register-form></app-register-form>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
