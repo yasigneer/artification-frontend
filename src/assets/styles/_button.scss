@@ -1,0 +1,17 @@
+@import 'variables';
+button{
+  border: none;
+}
+.btn{
+  color: lightgray;
+  cursor: pointer;
+  background-color: $blue-light;
+  border: 1px solid $blue-light;
+  padding: 10px 20px;
+  transition: 0.5s all;
+  &:hover{
+    color: $blue-light;
+    background-color: inherit;
+    box-shadow: 0 5px 45px $blue;
+  }
+}

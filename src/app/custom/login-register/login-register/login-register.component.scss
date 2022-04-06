@@ -1,0 +1,57 @@
+@import 'src/styles';
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $gray-dark;
+  color: $blue-light;
+  .form{
+    &-container{
+      position: relative;
+      width: 800px;
+      height: 500px;
+      margin: 20px;
+    }
+    &-box{
+      position: absolute;
+      width: 100%;
+      height: 420px;
+      background-color: $gray;
+      top: 40px;
+      box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .box{
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column ;
+        justify-content: center;
+        align-items: center;
+        h2{
+          margin-bottom: 16px;
+        }
+      }
+    }
+    &-wrapper{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 1;
+      background-color: $gray-medium;
+      box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+      transition: 0.5s ease-in-out;
+      display: grid;
+      place-content: center;
+      &.active{
+        left: 50%;
+      }
+    }
+  }
+}
