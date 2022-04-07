@@ -14,7 +14,6 @@ input,input:focus,input:hover,input:focus-visible{
   padding: 10px 20px;
   transition: 0.5s all;
   &:hover, &:focus{
-    color: $white;
     border: 1px solid $yellow-light;
     box-shadow: 0 0 10px $yellow;
   }
