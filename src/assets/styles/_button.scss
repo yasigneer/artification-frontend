@@ -3,15 +3,27 @@ button{
   border: none;
 }
 .btn{
-  color: lightgray;
+  border-radius: 4px;
   cursor: pointer;
-  background-color: $blue-light;
-  border: 1px solid $blue-light;
   padding: 10px 20px;
   transition: 0.5s all;
-  &:hover{
-    color: $blue-light;
-    background-color: inherit;
-    box-shadow: 0 5px 45px $blue;
+  &-primary{
+    color: $main-blue;
+    background-color: $gray-blue-light;
+    &:hover{
+      color: $gray-blue-light;
+      background-color: inherit;
+      border: 1px solid $blue-light;
+      box-shadow: 0 5px 45px $blue-light;
+    }
+  }
+  &-secondary{
+    color: $gray-blue-light;
+    background-color: $main-blue;
+    &:hover{
+      color: $main-blue;
+      background-color: inherit;
+      border: 1px solid $blue;
+    }
   }
 }
