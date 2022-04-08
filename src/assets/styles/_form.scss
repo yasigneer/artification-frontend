@@ -8,13 +8,13 @@ input,input:focus,input:hover,input:focus-visible{
   border-radius: 4px;
 }
 .txt-input{
-  color: $yellow-light;
+  color: $dark-blue;
   background-color: inherit;
-  border: 1px solid $yellow-light;
+  border: 1px solid $dark-blue;
   padding: 10px 20px;
   transition: 0.5s all;
   &:hover, &:focus{
-    border: 1px solid $yellow-light;
-    box-shadow: 0 0 10px $yellow;
+    border: 1px solid $blue-light;
+    box-shadow: 0 0 10px $blue-light;
   }
 }

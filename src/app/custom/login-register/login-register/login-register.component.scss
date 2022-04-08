@@ -5,8 +5,8 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: $gray-dark;
-  color: $blue-light;
+  background-color: $dark-blue;
+  color: $gray-blue-light;
   .form{
     &-container{
       position: relative;
@@ -18,7 +18,7 @@
       position: absolute;
       width: 100%;
       height: 420px;
-      background-color: $gray;
+      background-color: $main-blue;
       top: 40px;
       box-shadow: 0 5px 45px rgba(0,0,0,0.15);
       display: flex;
@@ -44,7 +44,7 @@
       width: 50%;
       height: 100%;
       z-index: 1;
-      background-color: $gray-medium;
+      background-color: $gray-blue-light;
       box-shadow: 0 5px 45px rgba(0,0,0,0.25);
       transition: 0.5s ease-in-out;
       display: grid;
