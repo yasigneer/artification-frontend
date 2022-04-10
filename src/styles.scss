@@ -7,13 +7,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: $font-primary;
+  font-family: $font-primary, $font-secondary, $font-third;
   font-weight: normal;
   font-size: 16px;
 }
 body{
   width: 100%;
   min-height: 100vh;
+  background-color: $dark-blue;
 }
 
 

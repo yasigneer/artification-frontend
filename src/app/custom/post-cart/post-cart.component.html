@@ -1,0 +1,23 @@
+<div class="post-container" (mouseenter)="isHovered=true" (mouseleave)="isHovered=false">
+  <div class="img-wrapper">
+    <img src='https://pbs.twimg.com/media/FP_FiTHWQAM_vY5?format=jpg&name=4096x4096' alt=''>
+    <ng-container *ngIf="isHovered">
+      <div class="img-info">
+        <p class="title">Gönderi Başlığı</p>
+        <span class="add-inspirations"></span>
+      </div>
+    </ng-container>
+  </div>
+  <div class="post-info">
+    <div class="user-info">
+      <div class="avatar">
+        <img src='https://pbs.twimg.com/profile_images/1503011405955575809/O_DUE5ew_400x400.jpg'>
+      </div>
+      <p class="nickname">yasigneer</p>
+    </div>
+    <div class="reactions">
+      <span class="inspirations"></span>
+      <p class="insp-count">1.775</p>
+    </div>
+  </div>
+</div>
