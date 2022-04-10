@@ -5,13 +5,15 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginRegisterModule } from 'src/app/custom/login-register/login-register.module';
-import { NavigationBarComponent } from './custom/navigation-bar/navigation-bar.component'
+import { NavigationBarComponent } from './custom/navigation-bar/navigation-bar.component';
+import { PostCartComponent } from './custom/post-cart/post-cart.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    PostCartComponent
   ],
   imports: [
     BrowserModule,
