@@ -1,0 +1,43 @@
+@import 'src/styles';
+
+.search-container{
+  width: 320px;
+  border-radius: 16px;
+  input{
+    width: 100%;
+    height: 48px;
+    border: 1px solid $blue;
+    border-radius: 16px;
+    color: $gray-blue-light;
+    background-color: $blue;
+    caret-color: $blue-light;
+    padding: 8px 16px;
+    transition: 0.5s all;
+    z-index: 1001;
+    &::placeholder{
+      color: $white;
+      opacity: 0.3;
+    }
+    &:focus,&:hover,&.active{
+      background-color: $main-blue;
+      border: 1px solid $blue-light;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+  }
+  .search-suggestions{
+    position: absolute;
+    width: 320px;
+    height: 192px;
+    background-color: $main-blue;
+    border: 1px  solid $blue-light;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    visibility: hidden;
+    &.active{
+      box-shadow: 0 5px 10px rgba(0,0,0,0.75);
+      visibility: visible;
+      transition: 0.5s all;
+    }
+  }
+}
