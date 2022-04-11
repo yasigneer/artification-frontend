@@ -9,6 +9,7 @@ input,input:focus,input:hover,input:focus-visible{
 }
 .txt-input{
   color: $dark-blue;
+  caret-color: $dark-blue;
   background-color: inherit;
   border: 1px solid $dark-blue;
   padding: 10px 20px;
