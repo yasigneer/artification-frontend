@@ -1,0 +1,19 @@
+@import 'src/styles';
+.list-container{
+  display: grid;
+  width: 100%;
+  min-height: fit-content;
+  padding: 16px 64px;
+  grid-template-columns: repeat(auto-fill, 324px);
+  gap: 24px;
+  place-content: center;
+  margin-top: 92px;
+  @media screen and (max-width: $tablet) {
+    padding: 16px;
+  }
+
+  .post-wrapper{
+    display: grid;
+    place-content: center;
+  }
+}
