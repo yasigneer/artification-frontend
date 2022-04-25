@@ -13,7 +13,6 @@ export class UserService {
   constructor(protected http: HttpClient) { }
 
   getUser(nickname: string): Observable<User> {
-    let params = new HttpParams().set('nickName',nickname);
-    return this.http.get<User>(this.apiUrl,{params: params});
+    return this.http.get<User>(this.apiUrl+'/'+nickname);
   }
 }
