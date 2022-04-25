@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {LoginRegisterComponent} from "./custom/login-register/login-register/login-register.component";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'artification-frontend';
+  showHeader = true;
+  determineComponent(event: any){
+    this.showHeader = !(event instanceof LoginRegisterComponent);
+  }
 }
