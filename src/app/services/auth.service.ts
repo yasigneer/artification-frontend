@@ -17,12 +17,12 @@ export class AuthService {
 
   constructor(protected http: HttpClient,protected userService: UserService) {}
 
-  login(nickName: string, password: string){
-    return  this.http.post(this.apiUrl,{nickName, password}).pipe(
+  login(loginUser:User){
+    return  this.http.post(this.apiUrl,loginUser).pipe(
       tap((response: any) => {
         this.isLoggedIn$ = response;
         if(this.isLoggedIn$){
-          this.currentUser$ = this.userService.getUser(nickName);
+          this.currentUser$ = this.userService.getUser(loginUser.nickName);
         }
         console.log(this.isLoggedIn$);
       }),
