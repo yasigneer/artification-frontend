@@ -9,7 +9,7 @@ import {User} from "../models/user.model";
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl: string = environment.apiUrl+'/Users';
+  apiUrl: string = environment.apiUrl+'Users';
   constructor(protected http: HttpClient) { }
 
   getUser(nickname: string): Observable<User> {

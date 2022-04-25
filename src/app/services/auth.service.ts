@@ -11,19 +11,20 @@ import {User} from "../models/user.model";
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl: string = environment.apiUrl+'/Login'
+  apiUrl: string = environment.apiUrl+'Login'
   isLoggedIn$?: Observable<boolean>;
   currentUser$?: Observable<User>;
 
   constructor(protected http: HttpClient,protected userService: UserService) {}
 
   login(nickName: string, password: string){
-    this.http.post(this.apiUrl,{nickName, password}).pipe(
+    return  this.http.post(this.apiUrl,{nickName, password}).pipe(
       tap((response: any) => {
         this.isLoggedIn$ = response;
         if(this.isLoggedIn$){
           this.currentUser$ = this.userService.getUser(nickName);
         }
+        console.log(this.isLoggedIn$);
       }),
     );
   }
