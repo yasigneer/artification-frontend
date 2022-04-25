@@ -24,7 +24,6 @@ export class AuthService {
         if(this.isLoggedIn$){
           this.currentUser$ = this.userService.getUser(loginUser.nickName);
         }
-        console.log(this.isLoggedIn$);
       }),
     );
   }
