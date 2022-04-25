@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-post-list',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class PostListComponent implements OnInit {
   posts?: number[];
 
-  constructor() {
+  constructor(protected authService: AuthService) {
     this.posts = Array(15).fill(0).map((v,i)=>i);
   }
 

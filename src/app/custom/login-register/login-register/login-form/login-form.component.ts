@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../../services/auth.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {first} from "rxjs/operators";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+
+import {AuthService} from "../../../../services/auth.service";
 import {Observable} from "rxjs";
+import {User} from "../../../../models/user.model";
 
 @Component({
   selector: 'app-login-form',
@@ -12,6 +13,7 @@ import {Observable} from "rxjs";
 })
 export class LoginFormComponent implements OnInit {
   loginUser!: FormGroup;
+  currentUser$?: Observable<User> = this.authService.currentUser$
 
   constructor(
     protected authService: AuthService,
@@ -21,18 +23,21 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginUser = this.fb.group({
-      nickName: '',
-      passwordHashed: ''
+      nickName: ['', Validators.required],
+      passwordHashed: ['', Validators.required]
     });
+    this.currentUser$?.subscribe(user => {
+      if( user ){
+        this.router.navigate(['/home'])
+      }
+    })
   }
 
   login() {
-    this.authService.login(this.loginUser.value).pipe(first()).subscribe(
-      (data) => {
-        if(data){
-          this.router.navigate(['/home']);
-        }
+    this.authService.login(this.loginUser.value).subscribe((data)=>{
+      if ( data ){
+        this.router.navigate(['/home'])
       }
-    );
+    });
   }
 }
