@@ -21,6 +21,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.loginUser?.value.nickname, this.loginUser?.value.password).pipe(first()).subscribe();
+    this.authService.login(this.loginUser.value).pipe(first()).subscribe();
   }
 }
