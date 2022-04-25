@@ -1,5 +1,2 @@
-<app-navigation-bar></app-navigation-bar>
-<app-login-register></app-login-register>
-<router-outlet></router-outlet>
-<!-- <app-login-register></app-login-register> -->
-<!-- saaassadsd-->
+<app-navigation-bar *ngIf="showHeader"></app-navigation-bar>
+<router-outlet (activate)="determineComponent($event)"></router-outlet>

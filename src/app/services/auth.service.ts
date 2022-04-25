@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {tap} from "rxjs/operators";
+import {filter, tap} from "rxjs/operators";
 import {Observable} from "rxjs";
 
 import {UserService} from "./user.service";
@@ -22,7 +22,11 @@ export class AuthService {
       tap((response: any) => {
         this.isLoggedIn$ = response;
         if(this.isLoggedIn$){
-          this.currentUser$ = this.userService.getUser(loginUser.nickName);
+          this.currentUser$ = this.userService.getUser(loginUser.nickName).pipe(
+            filter(users => users.nickName == loginUser.nickName),
+            tap((user:any )=> console.log(user))
+          );
+          this.currentUser$.subscribe(data => console.log(data));
         }
       }),
     );
