@@ -13,6 +13,6 @@ export class UserService {
   constructor(protected http: HttpClient) { }
 
   getUser(nickname: string): Observable<User> {
-    return this.http.get<User>(this.apiUrl+'/'+nickname);
+    return this.http.get<User>(`${this.apiUrl}/${nickname}`);
   }
 }

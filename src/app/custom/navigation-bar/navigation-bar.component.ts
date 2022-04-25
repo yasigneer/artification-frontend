@@ -1,7 +1,11 @@
 import {AfterViewInit, Component, HostBinding} from '@angular/core';
-import {fromEvent} from "rxjs";
+import {fromEvent, Observable} from "rxjs";
 import {distinctUntilChanged, filter, map, pairwise, share, throttleTime} from "rxjs/operators";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+
+import {User} from "../../models/user.model";
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 enum VisibilityState {
   Visible = 'visible',
@@ -33,17 +37,22 @@ enum Direction {
 })
 export class NavigationBarComponent implements  AfterViewInit {
   private isVisible: boolean = true;
-
+  public currentUser$?: Observable<User> = this.authService.currentUser$;
+  constructor(protected authService: AuthService, protected router: Router) {
+  }
   @HostBinding('@toggle')
   get toggle(): VisibilityState{
     return this.isVisible? VisibilityState.Visible : VisibilityState.Hidden;
   }
+
   ngAfterViewInit(): void {
      const scroll$ = fromEvent(window,'scroll').pipe(
       throttleTime(10),
       map( () => window.pageYOffset ),
       pairwise(),
-      map(([firstY,secondY]): Direction => secondY > firstY ? Direction.Down : Direction.Up),
+      map(([firstYAxisValue,secondYAxisValue]): Direction => secondYAxisValue > firstYAxisValue
+        ? Direction.Down
+        : Direction.Up),
       distinctUntilChanged(),
        share()
     );
@@ -55,6 +64,8 @@ export class NavigationBarComponent implements  AfterViewInit {
     )
     scrollDown$.subscribe(() => this.isVisible = false);
     scrollUp$.subscribe(() => this.isVisible = true);
-    console.log(this.isVisible);
+  }
+  logout(){
+    this.authService.logout();
   }
 }

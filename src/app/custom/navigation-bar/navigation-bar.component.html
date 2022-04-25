@@ -1,11 +1,16 @@
 <header>
-  <div class="logo"></div>
+  <div class="logo">artificat</div>
   <div class="search-bar">
     <app-search-bar></app-search-bar>
   </div>
   <div class="navigations"></div>
   <div class="nav-btn-container">
-    <div class="create-post"></div>
-    <div class="account"></div>
+    <div class="create-post">ilham ol</div>
+    <ng-container *ngIf="currentUser$ | async as user; else login">
+      <button (click)="logout()" class="btn-primary">Çıkış Yap</button>
+    </ng-container>
+    <ng-template #login>
+      <button routerLink="/login" class="btn-primary">Giriş Yap</button>
+    </ng-template>
   </div>
 </header>
