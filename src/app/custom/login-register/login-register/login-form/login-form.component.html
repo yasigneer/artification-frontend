@@ -1,11 +1,11 @@
-<form>
+<form [formGroup]="loginUser" (ngSubmit)="login()">
   <label for="txtNickName">
     <p>Nickname</p>
-    <input class="txt-input" id="txtNickName" type="text">
+    <input formControlName="nickname" class="txt-input" id="txtNickName" type="text">
   </label>
   <label for="txtPassword">
     <p>Password</p>
-    <input class="txt-input" id="txtPassword" type="password">
+    <input formControlName="password" class="txt-input" id="txtPassword" type="password">
   </label>
   <button class="btn btn-secondary">
     Giriş Yap
