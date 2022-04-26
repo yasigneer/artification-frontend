@@ -1,21 +1,21 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
   <label for="txtNickName">
     <p>Nickname</p>
-    <input class="txt-input" id="txtNickName" type="text">
+    <input formControlName="nickName" class="txt-input" id="txtNickName" type="text">
   </label>
   <label for="txtEmail">
     <p>E-Mail</p>
-    <input class="txt-input" id="txtEmail" type="text">
+    <input formControlName="email"  class="txt-input" id="txtEmail" type="text">
   </label>
   <label for="txtPassword">
     <p>Şifre</p>
-    <input class="txt-input" id="txtPassword" type="password">
+    <input formControlName="password" class="txt-input" id="txtPassword" type="password">
   </label>
   <label for="txtConfirmPassword">
     <p>Şifreyi Tekrarla</p>
-    <input class="txt-input" id="txtConfirmPassword" type="password">
+    <input formControlName="passwordAgain" class="txt-input" id="txtConfirmPassword" type="password">
   </label>
-  <button class="btn btn-secondary">
+  <button [disabled]="!registerForm.valid" class="btn btn-secondary">
     Kayıt Ol
   </button>
 </form>
