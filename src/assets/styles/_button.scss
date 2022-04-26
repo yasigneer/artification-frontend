@@ -1,6 +1,9 @@
 @import 'variables';
 button{
   border: none;
+  &[disabled]{
+    cursor: not-allowed;
+  }
 }
 .btn{
   border-radius: 4px;
@@ -12,7 +15,7 @@ button{
     background-color: $blue;
     border: 1px solid $main-blue;
     box-shadow: 0 0 20px $dark-blue;
-    &:hover{
+    &:hover:not([disabled]){
       color: $gray-blue-light;
       background-color: inherit;
       border: 1px solid $blue-light;
@@ -23,7 +26,7 @@ button{
     color: $gray-blue-light;
     background-color: $main-blue;
     border: 1px solid $main-blue;
-    &:hover{
+    &:hover:not([disabled]){
       color: $main-blue;
       background-color: inherit;
       border: 1px solid $blue;

@@ -7,7 +7,7 @@
     <p>Password</p>
     <input formControlName="passwordHashed" class="txt-input" id="txtPassword" type="password">
   </label>
-  <button class="btn btn-secondary">
+  <button [disabled]="!loginUser.valid" class="btn btn-secondary">
     Giriş Yap
   </button>
 </form>
