@@ -12,8 +12,6 @@ header{
   top: 0;
   z-index: 2;
   div{
-    height: 64px;
-    width: 92px;
     border-radius: 9999px;
     display: flex;
     align-items: center;
@@ -36,10 +34,20 @@ header{
       align-items: center;
       padding: 8px 0 8px 8px;
       .create-post{
+        border-radius: 9999px;
+        color: $gray-blue-light;
+        font-size: 1.25rem;
         padding: 12px 24px;
         width: fit-content;
+        max-height: 54px;
         height: fit-content;
         background-color: $blue;
+        cursor: pointer;
+        transition: 1s;
+        &:hover{
+          transform: translateY(-2px);
+          box-shadow: 0 5px 5px $blue-light;
+        }
       }
     }
   }

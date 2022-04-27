@@ -3,9 +3,12 @@
   <div class="search-bar">
     <app-search-bar></app-search-bar>
   </div>
-  <div class="navigations"></div>
+  <div class="navigations">
+    <div style="margin-right: 16px; font-size: 16px">Popüler Yayınlar</div>
+    <div style="margin-right: 16px; font-size: 16px">İlham Panosu</div>
+  </div>
   <div class="nav-btn-container">
-    <div class="create-post">ilham ol</div>
+    <button (click)="openPostForm()" class="create-post">ilham ol</button>
     <ng-container *ngIf="currentUser$ | async as user; else login">
       <button (click)="logout()" class="btn-primary">Çıkış Yap</button>
     </ng-container>
