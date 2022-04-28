@@ -15,16 +15,75 @@ form{
     p{
       margin-bottom: 8px;
     }
-    input{
-      width: 400px;
+    input,textarea{
+      font-size: 0.85rem;
+      font-weight: 300;
+      max-width: 400px;
+      min-width: 400px;
       border: 1px solid $blue-light;
       caret-color: $gray-blue-light;
       color: $gray-blue-light;
+    }
+    textarea{
+      max-height: 100px;
+      min-height: 100px;
+    }
+  }
+  .drag-area{
+    border: 2px dashed $blue-light;
+    color: $gray-blue-light;
+    border-radius: 8px;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    &.active{
+      box-shadow: 0 0 25px $blue-light;
+      border: 2px solid $blue-light;
+    }
+    .icon{
+      color: $blue-light;
+      height: 75px;
+      i{
+        font-size: 75px;
+      }
+    }
+    p{
+      margin-bottom: 8px;
+      .header{
+        font-weight: 500;
+      }
+      &:not(.header){
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
+    }
+    .btn-upload{
+      background-color: $blue-light;
+      color: $gray-blue-light;
+      transition: 0.5s;
+      &:hover{
+        box-shadow: 0 5px 10px $blue-light;
+        transform: translateY(-5px);
+      }
     }
   }
   .btn-container{
     display: flex;
     width: 100%;
     justify-content: space-between;
+    .btn{
+      border-color: $blue-light;
+      box-shadow: none;
+    }
+    .btn-submit{
+      background-color: $blue-light;
+      &:hover{
+        box-shadow: 0 5px 10px $blue-light;
+      }
+    }
   }
 }

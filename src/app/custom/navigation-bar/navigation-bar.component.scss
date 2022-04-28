@@ -34,19 +34,26 @@ header{
       align-items: center;
       padding: 8px 0 8px 8px;
       .create-post{
-        border-radius: 9999px;
+        border-radius: 12px;
         color: $gray-blue-light;
-        font-size: 1.25rem;
-        padding: 12px 24px;
+        padding: 8px 16px;
         width: fit-content;
         max-height: 54px;
         height: fit-content;
-        background-color: $blue;
+        background-color: $blue-light;
         cursor: pointer;
         transition: 1s;
+        display: flex;
+        align-items: center;
         &:hover{
-          transform: translateY(-2px);
-          box-shadow: 0 5px 5px $blue-light;
+          transform: translateY(-5px);
+          box-shadow: 0 5px 10px $blue-light;
+        }
+        span{
+          margin-right: 8px;
+          i{
+            font-size: 1.25rem;
+          }
         }
       }
     }

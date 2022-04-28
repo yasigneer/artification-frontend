@@ -1,7 +1,7 @@
 <ng-container  >
   <div (mouseenter)="isHovered=true" (mouseleave)="isHovered=false" class="search-container" [class]="isHovered ? 'active' : ''">
+    <span><i class="bi bi-search"></i></span>
     <input (focusin)="isHovered=true" [class]="isHovered ? 'active' : ''" type="text" placeholder="ilham kaynağı ara">
-    <div class="search-suggestions" [class]="isHovered ? 'active' : ''">
-    </div>
+    <div class="search-suggestions" [class]="isHovered ? 'active' : ''"></div>
   </div>
 </ng-container>

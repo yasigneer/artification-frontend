@@ -5,14 +5,21 @@
   </label>
   <label for="txtPostDesc">
     <p>Açıklama</p>
-    <input class="txt-input" id="txtPostDesc" type="text" autocomplete="off">
+    <textarea class="txt-input" id="txtPostDesc" autocomplete="off"></textarea>
   </label>
-  <div class="drag-area">
-
+  <div
+    (dragover)="isDragged=true"
+    (dragleave)="isDragged=false"
+    class="drag-area"
+    [class]="isDragged?'active':''">
+    <span class="icon"><i class="bi bi-cloud-arrow-up-fill"></i></span>
+    <p class="header">{{isDragged?'Yüklemek için bırak':'Sürükle & Bırak'}}</p>
+    <p>ya da</p>
+    <button class="btn btn-upload"><input type="file" hidden>Dosya seç</button>
   </div>
   <div class="btn-container">
-    <button class="btn btn-primary">Vazgeç</button>
-    <button type="submit" class="btn btn-primary">
+    <button mat-dialog-close class="btn btn-primary btn-cancel">Vazgeç</button>
+    <button type="submit" class="btn btn-primary btn-submit">
       Paylaş
     </button>
   </div>
