@@ -17,4 +17,8 @@ body{
   background-color: $dark-blue;
 }
 
+mat-dialog-container{
+  background-color: $blue !important;
+  border-radius: 16px !important;
+}
 

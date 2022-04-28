@@ -7,6 +7,12 @@ input,input:focus,input:hover,input:focus-visible{
   background-color: inherit;
   border-radius: 4px;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,{
+  background-color: inherit !important;
+}
 .txt-input{
   color: $dark-blue;
   caret-color: $dark-blue;

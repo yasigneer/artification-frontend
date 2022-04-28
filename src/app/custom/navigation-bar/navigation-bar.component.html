@@ -10,10 +10,10 @@
   <div class="nav-btn-container">
     <button (click)="openPostForm()" class="create-post">ilham ol</button>
     <ng-container *ngIf="currentUser$ | async as user; else login">
-      <button (click)="logout()" class="btn-primary">Çıkış Yap</button>
+      <button (click)="logout()" class="btn btn-primary">Çıkış Yap</button>
     </ng-container>
     <ng-template #login>
-      <button routerLink="/login" class="btn-primary">Giriş Yap</button>
+      <button routerLink="/login" class="btn btn-primary">Giriş Yap</button>
     </ng-template>
   </div>
 </header>

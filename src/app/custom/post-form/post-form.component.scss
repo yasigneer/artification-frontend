@@ -1,0 +1,30 @@
+@import "src/styles";
+form{
+  width: fit-content;
+  padding: 24px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: $gray-blue-light;
+  label{
+    width: 400px;
+    display: grid;
+    place-content: center;
+    p{
+      margin-bottom: 8px;
+    }
+    input{
+      width: 400px;
+      border: 1px solid $blue-light;
+      caret-color: $gray-blue-light;
+      color: $gray-blue-light;
+    }
+  }
+  .btn-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
