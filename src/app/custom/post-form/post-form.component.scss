@@ -53,7 +53,10 @@ form{
     }
     p{
       margin-bottom: 8px;
-      .header{
+      &.wrong-extension{
+        color: red;
+      }
+      &.header{
         font-weight: 500;
       }
       &:not(.header){

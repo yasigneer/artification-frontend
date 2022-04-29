@@ -8,14 +8,19 @@
     <textarea class="txt-input" id="txtPostDesc" autocomplete="off"></textarea>
   </label>
   <div
-    (dragover)="isDragged=true"
-    (dragleave)="isDragged=false"
+    (dragover)="handleDragOver($event)"
+    (dragleave)="handleDragLeave($event)"
+    (drop)="handleDrop($event)"
     class="drag-area"
     [class]="isDragged?'active':''">
     <span class="icon"><i class="bi bi-cloud-arrow-up-fill"></i></span>
+    <ng-container *ngIf="notImage">
+      <p class="wrong-extension">Lütfen jpg, jpeg veya png uzantılı bir dosya seçiniz</p>
+    </ng-container>
     <p class="header">{{isDragged?'Yüklemek için bırak':'Sürükle & Bırak'}}</p>
     <p>ya da</p>
-    <button class="btn btn-upload"><input type="file" hidden>Dosya seç</button>
+    <button type="button" (click)="file.click()" class="btn btn-upload">Dosya seç</button>
+    <input #file (change)="handleChange($event)" type="file" hidden>
   </div>
   <div class="btn-container">
     <button mat-dialog-close class="btn btn-primary btn-cancel">Vazgeç</button>

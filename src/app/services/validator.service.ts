@@ -7,8 +7,8 @@ export class ValidatorService {
 
   constructor() { }
 
-  static imageExtensionValidator(fileType: string): boolean{
-    let validFiles: string[] = ['images/jpeg','images/jpg', "images/png"]
+  public imageExtensionValidator(fileType: string): boolean{
+    let validFiles: string[] = ['image/jpeg','image/jpg', "image/png"]
     return validFiles.includes(fileType);
   }
 }
