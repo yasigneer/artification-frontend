@@ -1,11 +1,11 @@
-<form>
+<form [formGroup]="postForm" (ngSubmit)="sharePost()" enctype="multipart/form-data">
   <label for="txtPostTitle">
     <p>Gönderi Başlığı</p>
-    <input class="txt-input" id="txtPostTitle" type="text" autocomplete="off">
+    <input formControlName="postTitle" class="txt-input" id="txtPostTitle" type="text" autocomplete="off">
   </label>
   <label for="txtPostDesc">
     <p>Açıklama</p>
-    <textarea class="txt-input" id="txtPostDesc" autocomplete="off"></textarea>
+    <textarea formControlName="postDescription" class="txt-input" id="txtPostDesc" autocomplete="off"></textarea>
   </label>
   <div
     (dragover)="handleDragOver($event)"

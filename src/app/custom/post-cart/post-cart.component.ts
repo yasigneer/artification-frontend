@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Post} from "../../models/post.model";
 
 @Component({
   selector: 'app-post-cart',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCartComponent implements OnInit {
   isHovered: boolean = false;
+  @Input() post!: Post
 
   constructor() { }
 
