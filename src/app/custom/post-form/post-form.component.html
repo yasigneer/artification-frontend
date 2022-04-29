@@ -1,0 +1,31 @@
+<form>
+  <label for="txtPostTitle">
+    <p>Gönderi Başlığı</p>
+    <input class="txt-input" id="txtPostTitle" type="text" autocomplete="off">
+  </label>
+  <label for="txtPostDesc">
+    <p>Açıklama</p>
+    <textarea class="txt-input" id="txtPostDesc" autocomplete="off"></textarea>
+  </label>
+  <div
+    (dragover)="handleDragOver($event)"
+    (dragleave)="handleDragLeave($event)"
+    (drop)="handleDrop($event)"
+    class="drag-area"
+    [class]="isDragged?'active':''">
+    <span class="icon"><i class="bi bi-cloud-arrow-up-fill"></i></span>
+    <ng-container *ngIf="notImage">
+      <p class="wrong-extension">Lütfen jpg, jpeg veya png uzantılı bir dosya seçiniz</p>
+    </ng-container>
+    <p class="header">{{isDragged?'Yüklemek için bırak':'Sürükle & Bırak'}}</p>
+    <p>ya da</p>
+    <button type="button" (click)="file.click()" class="btn btn-upload">Dosya seç</button>
+    <input #file (change)="handleChange($event)" type="file" hidden>
+  </div>
+  <div class="btn-container">
+    <button mat-dialog-close class="btn btn-primary btn-cancel">Vazgeç</button>
+    <button type="submit" class="btn btn-primary btn-submit">
+      Paylaş
+    </button>
+  </div>
+</form>

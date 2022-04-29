@@ -2,7 +2,7 @@
 @import 'assets/styles/variables';
 @import 'assets/styles/button';
 @import 'assets/styles/form';
-
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 *{
   box-sizing: border-box;
   margin: 0;
@@ -17,4 +17,8 @@ body{
   background-color: $dark-blue;
 }
 
+mat-dialog-container{
+  background-color: $blue !important;
+  border-radius: 16px !important;
+}
 

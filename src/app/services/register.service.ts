@@ -9,7 +9,7 @@ import {first} from "rxjs/operators";
   providedIn: 'root'
 })
 export class RegisterService {
-  private apiUrl=  `${environment.apiUrl}api/Register`
+  private apiUrl=  `${environment.apiUrl}/Register`
   constructor(protected httpClient: HttpClient) { }
   register(user: User){
     return this.httpClient.post(this.apiUrl,user).pipe(first())

@@ -1,11 +1,18 @@
 @import 'variables';
 
-input,input:focus,input:hover,input:focus-visible{
+input,input:focus,input:hover,input:focus-visible,
+textarea,textarea:focus,textarea:hover,textarea:focus-visible{
   border: none;
   outline: none;
   box-shadow: none;
   background-color: inherit;
   border-radius: 4px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,{
+  background-color: inherit !important;
 }
 .txt-input{
   color: $dark-blue;

@@ -45,11 +45,14 @@
         font-size: 1.2rem;
       }
       .add-inspirations{
-        display: inline-flex;
+        display: inline-grid;
+        place-content: center;
         height: 1.5rem;
         width: 1.5rem;
-        background-color: $gray-blue;
-        border-radius: 8px;
+        i{
+          font-size: 1.4rem;
+          color: $gray-blue-light;
+        }
       }
     }
   }
@@ -74,19 +77,21 @@
         }
       }
       .nickname{
-        font-weight: bold;
+        font-weight: 500;
       }
     }
     .reactions{
       display: flex;
       align-items: center;
       .inspirations{
-        display: inline-flex;
+        display: inline-grid;
+        place-content: center;
         height: 1.35rem;
         width: 1.35rem;
-        background-color: $gray-blue;
-        border-radius: 8px;
         margin-right: 4px;
+        i{
+          color: $gray-blue;
+        }
       }
       .insp-count{
         font-size: 0.8rem;

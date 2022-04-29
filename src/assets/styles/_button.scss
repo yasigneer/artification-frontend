@@ -6,7 +6,7 @@ button{
   }
 }
 .btn{
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   padding: 10px 20px;
   transition: 0.5s;
@@ -14,12 +14,12 @@ button{
     color: $gray-blue-light;
     background-color: $blue;
     border: 1px solid $main-blue;
-    box-shadow: 0 0 20px $dark-blue;
     &:hover:not([disabled]){
       color: $gray-blue-light;
       background-color: inherit;
       border: 1px solid $blue-light;
-      box-shadow: 0 0 15px $blue-light;
+      box-shadow: 0 5px 10px $blue-light;
+      transform: translateY(-3px);
     }
   }
   &-secondary{

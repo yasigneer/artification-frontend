@@ -6,6 +6,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {User} from "../../models/user.model";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {PostFormComponent} from "../post-form/post-form.component";
 
 enum VisibilityState {
   Visible = 'visible',
@@ -38,7 +40,7 @@ enum Direction {
 export class NavigationBarComponent implements  AfterViewInit {
   private isVisible: boolean = true;
   public currentUser$?: Observable<User> = this.authService.currentUser$;
-  constructor(protected authService: AuthService, protected router: Router) {
+  constructor(protected authService: AuthService, protected router: Router, protected dialog: MatDialog) {
   }
   @HostBinding('@toggle')
   get toggle(): VisibilityState{
@@ -64,6 +66,9 @@ export class NavigationBarComponent implements  AfterViewInit {
     )
     scrollDown$.subscribe(() => this.isVisible = false);
     scrollUp$.subscribe(() => this.isVisible = true);
+  }
+  openPostForm(){
+    this.dialog.open(PostFormComponent);
   }
   logout(){
     this.authService.logout();
