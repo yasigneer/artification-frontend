@@ -14,6 +14,7 @@ import { PostCartComponent } from './custom/post-cart/post-cart.component';
 import { PostListComponent } from './custom/post-list/post-list.component';
 import { SearchBarComponent } from './custom/search-bar/search-bar.component';
 import { PostFormComponent } from './custom/post-form/post-form.component'
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -25,14 +26,15 @@ import { PostFormComponent } from './custom/post-form/post-form.component'
     SearchBarComponent,
     PostFormComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    LoginRegisterModule,
-    HttpClientModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        LoginRegisterModule,
+        HttpClientModule,
+        MatDialogModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
