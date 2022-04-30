@@ -89,7 +89,9 @@ export class PostFormComponent implements OnInit, OnDestroy {
     Object.keys(this.postForm.controls).forEach(
       formControlName => {this.formData.append(formControlName,  this.postForm.get(formControlName)?.value);
     });
-    this.postService.sharePost(this.formData).subscribe();
+    this.postService.sharePost(this.formData).subscribe(()=>
+      this.dialog.close()
+    );
   }
 
 }
