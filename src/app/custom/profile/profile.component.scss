@@ -1,0 +1,47 @@
+@import "src/styles";
+.profile-container{
+  display: flex;
+  padding: 16px 64px;
+  margin-top: 72px;
+  .left-wrapper{
+    margin-right: 32px;
+  }
+  .right-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .list-option{
+      width: 100%;
+      display: flex;
+      border-bottom: 1px solid $blue;
+      justify-content: center;
+      margin-bottom: 16px;
+      button{
+        width: 120px;
+        background-color: inherit;
+        border: 1px solid $blue-light;
+        transition: 1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        color: $gray-blue-light;
+        padding: 8px 16px;
+        margin-right: 16px;
+        margin-bottom: 16px;
+        &:hover{
+          transform: translateY(-5px);
+          box-shadow: 0 5px 10px $blue-light;
+        }
+        &.active{
+          background-color: $blue-light;
+        }
+      }
+    }
+    .post-list{
+      .list-container{
+        gap: 12px;
+      }
+    }
+  }
+}

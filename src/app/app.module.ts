@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -14,7 +15,9 @@ import { PostCartComponent } from './custom/post-cart/post-cart.component';
 import { PostListComponent } from './custom/post-list/post-list.component';
 import { SearchBarComponent } from './custom/search-bar/search-bar.component';
 import { PostFormComponent } from './custom/post-form/post-form.component'
-import {ReactiveFormsModule} from "@angular/forms";
+import { ProfileCartComponent } from './custom/profile-cart/profile-cart.component';
+import { ProfileComponent } from './custom/profile/profile.component';
+import { FeedComponent } from './custom/feed/feed.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     PostCartComponent,
     PostListComponent,
     SearchBarComponent,
-    PostFormComponent
+    PostFormComponent,
+    ProfileCartComponent,
+    ProfileComponent,
+    FeedComponent
   ],
     imports: [
         BrowserModule,
