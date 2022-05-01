@@ -1,0 +1,3 @@
+<ng-container *ngIf="posts$ | async as posts">
+  <app-post-list [posts]="posts" class="feed"></app-post-list>
+</ng-container>

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import {LoginRegisterComponent} from "./custom/login-register/login-register/login-register.component";
-import {PostListComponent} from "./custom/post-list/post-list.component";
+import {ProfileComponent} from "./custom/profile/profile.component";
+import {FeedComponent} from "./custom/feed/feed.component";
 
 const routes: Routes = [
   {
@@ -10,7 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {path: 'login', component: LoginRegisterComponent},
-  {path: 'home', component: PostListComponent},
+  {path: 'home', component: FeedComponent},
+  {path: ':nickname', component: ProfileComponent},
 ];
 
 @NgModule({

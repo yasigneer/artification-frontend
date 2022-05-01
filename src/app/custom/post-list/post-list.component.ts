@@ -1,9 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 
 import {Post} from "../../models/post.model";
-import {PostService} from "../../services/post.service";
 import {environment} from "../../../environments/environment";
 
 
@@ -14,16 +11,12 @@ import {environment} from "../../../environments/environment";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostListComponent implements OnInit {
-  posts?: number[];
-  posts$?: Observable<Post[]>
+  @Input() posts?: Post[]
 
-  constructor(protected postService: PostService) {
-    this.posts = Array(15).fill(0).map((v,i)=>i);
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.posts$ = this.postService.posts$?.pipe(
-      map((posts)=>posts.filter((post) =>post.postPath?.includes(environment.cloudUrl)))
-    )
+    this.posts = this.posts?.filter((post) => post.postPath!.includes(environment.cloudUrl))
   }
 }

@@ -65,6 +65,7 @@
     .user-info{
       display: flex;
       align-items: center;
+      cursor: pointer;
       .avatar{
         width: 40px;
         height: 40px;
@@ -82,6 +83,10 @@
       }
       .nickname{
         font-weight: 500;
+        transition: 1s ease-in-out;
+        &:hover{
+          border-bottom: 1px solid $gray-blue-light;
+        }
       }
     }
     .reactions{
