@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginRegisterComponent} from "./custom/login-register/login-register/login-register.component";
 import {PostListComponent} from "./custom/post-list/post-list.component";
-import {ProfileCartComponent} from "./custom/profile-cart/profile-cart.component";
+import {ProfileComponent} from "./custom/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {path: 'login', component: LoginRegisterComponent},
   {path: 'home', component: PostListComponent},
-  {path: 'user', component: ProfileCartComponent},
+  {path: 'user', component: ProfileComponent},
 ];
 
 @NgModule({

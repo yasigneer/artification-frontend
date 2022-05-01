@@ -1,7 +1,6 @@
 @import "src/styles";
 .profile{
   &-cart{
-    margin: 92px;
     background-color: $main-blue;
     width: 360px;
     height: 600px;
@@ -14,6 +13,8 @@
     align-items: center;
     justify-content: space-between;
     color: $gray-blue-light;
+    position: sticky;
+    top: 88px;
     .user-info{
       .nickname{
         text-align: center;
@@ -62,6 +63,7 @@
         width: 132px;
         margin-bottom: 12px;
         display: flex;
+        justify-content: center;
         span{
           margin-right: 8px;
         }
