@@ -1,13 +1,17 @@
-<div class="profile-container">
-  <div class="left-wrapper">
-    <app-profile-cart></app-profile-cart>
-  </div>
-  <div class="right-wrapper">
-    <div class="list-option">
-      <button class="btn active">Projeler</button>
-      <button class="btn">Favoriler</button>
+<ng-container *ngIf="user$ | async as user">
+  <div class="profile-container">
+    <div class="left-wrapper">
+      <app-profile-cart [user]="user"></app-profile-cart>
     </div>
-    <app-post-list class="post-list"></app-post-list>
+    <div class="right-wrapper">
+      <div class="list-option">
+        <button class="btn active">Projeler</button>
+        <button class="btn">Favoriler</button>
+      </div>
+      <ng-container *ngIf="sharedPosts$ | async as posts">
+        <app-post-list class="post-list" [posts]="posts"></app-post-list>
+      </ng-container>
+    </div>
   </div>
-</div>
+</ng-container>
 

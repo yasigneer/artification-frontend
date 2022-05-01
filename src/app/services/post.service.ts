@@ -23,6 +23,9 @@ export class PostService {
   getPosts(): Observable<Post[]>{
     return this.httpClient.get<Post[]>(this.apiURL);
   }
+  getUserPosts(userId: number): Observable<Post[]>{
+    return this.httpClient.get<Post[]>(`${this.apiURL}/Users/${userId}`);
+  }
   sharePost(formData: FormData){
     return this.httpClient.post(this.apiURL,formData).pipe(
       tap(() => {

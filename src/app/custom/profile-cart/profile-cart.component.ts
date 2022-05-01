@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-profile-cart',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-cart.component.scss']
 })
 export class ProfileCartComponent implements OnInit {
-
+  @Input() user!: User;
   constructor() { }
 
   ngOnInit(): void {
