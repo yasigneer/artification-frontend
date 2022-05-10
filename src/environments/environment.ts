@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://localhost:44317/",
+  apiUrl: "https://localhost:44317",
   cloudUrl: "https://mtm-bitirme.s3.amazonaws.com"
 };
 

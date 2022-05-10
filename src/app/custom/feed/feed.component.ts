@@ -15,7 +15,7 @@ export class FeedComponent implements OnInit {
   constructor(protected postService: PostService) { }
 
   ngOnInit(): void {
-    this.posts$ = this.postService.getPosts()
+    this.posts$ = this.postService.posts$!;
   }
 
 }

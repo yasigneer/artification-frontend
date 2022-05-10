@@ -12,7 +12,7 @@ import {Post} from "../models/post.model";
 export class PostService {
   isUpdated$? : BehaviorSubject<boolean>;
   posts$? : Observable<Post[]>
-  private apiURL: string = `${environment.apiUrl}Posts`;
+  private apiURL: string = `${environment.apiUrl}/Posts`;
   constructor(protected httpClient: HttpClient) {
     this.isUpdated$ = new BehaviorSubject<boolean>(true);
     this.posts$ = this.isUpdated$.pipe(

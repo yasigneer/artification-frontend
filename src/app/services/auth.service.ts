@@ -11,7 +11,7 @@ import {User} from "../models/user.model";
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl: string = environment.apiUrl+'Login';
+  private apiUrl: string = environment.apiUrl+'/Login';
   private userSubject$?: BehaviorSubject<User>
   public currentUser$?: Observable<User>
   constructor(
