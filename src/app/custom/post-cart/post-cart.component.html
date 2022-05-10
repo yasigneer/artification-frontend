@@ -4,7 +4,7 @@
     <ng-container *ngIf="isHovered">
       <div class="img-info">
         <p class="title">{{post.postTitle}}</p>
-        <span class="add-inspirations"><i class="bi bi-bookmark-star"></i></span>
+        <app-add-to-favorites [post]="post" [context]="'action'"></app-add-to-favorites>
       </div>
     </ng-container>
   </div>
@@ -15,11 +15,6 @@
       </div>
       <p class="nickname">{{post.nickName}}</p>
     </div>
-    <div class="reactions">
-      <span class="inspirations">
-        <i class="bi bi-bookmark-star"></i>
-      </span>
-      <p class="insp-count">{{post.likeCount}}</p>
-    </div>
+    <app-add-to-favorites [post]="post" [context]="'info'"></app-add-to-favorites>
   </div>
 </div>

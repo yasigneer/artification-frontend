@@ -5,13 +5,20 @@
     </div>
     <div class="right-wrapper">
       <div class="list-option">
-        <button class="btn active">Projeler</button>
-        <button class="btn">Favoriler</button>
+        <button (click)="changeList()" class="btn" [class]="isShared? 'active':''">Projeler</button>
+        <button (click)="changeList()" class="btn" [class]="!isShared? 'active':''">Favoriler</button>
       </div>
-      <ng-container *ngIf="sharedPosts$ | async as posts">
-        <app-post-list class="post-list" [posts]="posts"></app-post-list>
+      <ng-container *ngIf="isShared; else favorited">
+        <ng-container *ngIf="sharedPosts$ | async as posts">
+          <app-post-list class="post-list" [posts]="posts"></app-post-list>
+        </ng-container>
       </ng-container>
     </div>
   </div>
 </ng-container>
 
+<ng-template #favorited>
+  <ng-container *ngIf="favoritedPosts$ | async as posts">
+    <app-post-list class="post-list" [posts]="posts"></app-post-list>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,11 @@
+<ng-container *ngIf="context == 'action'; else info">
+  <span (click)="addFavorites()" class="add-inspirations"><i class="bi bi-bookmark-star"></i></span>
+</ng-container>
+<ng-template #info>
+  <div class="reactions">
+      <span class="inspirations">
+        <i class="bi bi-bookmark-star"></i>
+      </span>
+    <p class="insp-count">{{likeCount}}</p>
+  </div>
+</ng-template>

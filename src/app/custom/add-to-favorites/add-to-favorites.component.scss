@@ -1,0 +1,29 @@
+@import "src/styles";
+.add-inspirations{
+  display: inline-grid;
+  place-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  i{
+    font-size: 1.4rem;
+    color: $gray-blue-light;
+  }
+}
+.reactions{
+  display: flex;
+  align-items: center;
+  .inspirations{
+    display: inline-grid;
+    place-content: center;
+    height: 1.35rem;
+    width: 1.35rem;
+    margin-right: 4px;
+    i{
+      color: $gray-blue;
+    }
+  }
+  .insp-count{
+    font-size: 0.8rem;
+    font-weight: lighter;
+  }
+}

@@ -20,6 +20,7 @@ import { ProfileComponent } from './custom/profile/profile.component';
 import { FeedComponent } from './custom/feed/feed.component';
 import { PostDetailComponent } from './custom/post-detail/post-detail.component';
 import { CommentComponent } from './custom/comment/comment.component';
+import { AddToFavoritesComponent } from './custom/add-to-favorites/add-to-favorites.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CommentComponent } from './custom/comment/comment.component';
     FeedComponent,
     PostDetailComponent,
     CommentComponent,
+    AddToFavoritesComponent,
   ],
     imports: [
         BrowserModule,
