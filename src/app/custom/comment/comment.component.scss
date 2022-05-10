@@ -1,0 +1,32 @@
+@import "src/styles";
+.comment-container{
+  margin-top: 92px;
+  width: 360px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  color: $gray-blue;
+  .user-info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $blue;
+    img{
+      width: 36px;
+      min-height: 36px;
+      border-radius: 9999px;
+      object-fit: cover;
+      margin-right: 16px;
+    }
+    .nickname{
+      font-weight: 500;
+      color: $gray-blue-light;
+    }
+  }
+  .comment{
+    padding: 8px;
+    p {
+      font-size: 0.875rem;
+    }
+  }
+}

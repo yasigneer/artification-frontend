@@ -18,6 +18,8 @@ import { PostFormComponent } from './custom/post-form/post-form.component'
 import { ProfileCartComponent } from './custom/profile-cart/profile-cart.component';
 import { ProfileComponent } from './custom/profile/profile.component';
 import { FeedComponent } from './custom/feed/feed.component';
+import { PostDetailComponent } from './custom/post-detail/post-detail.component';
+import { CommentComponent } from './custom/comment/comment.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { FeedComponent } from './custom/feed/feed.component';
     PostFormComponent,
     ProfileCartComponent,
     ProfileComponent,
-    FeedComponent
+    FeedComponent,
+    PostDetailComponent,
+    CommentComponent,
   ],
     imports: [
         BrowserModule,
