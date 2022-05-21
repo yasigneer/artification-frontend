@@ -20,6 +20,14 @@ header{
     font-size: 1.25rem;
     &.logo{
       width: 192px;
+      justify-content: space-evenly;
+      cursor: pointer;
+      img{
+        height: 32px;
+      }
+      p{
+        font-size: 1.25rem;
+      }
     }
     &.search-bar{
       width: fit-content;

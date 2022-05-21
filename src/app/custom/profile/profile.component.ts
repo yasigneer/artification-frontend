@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable, Subscription} from "rxjs";
-import {switchMap} from "rxjs/operators";
+import {switchMap, tap} from "rxjs/operators";
 
 import {PostService} from "../../services/post.service";
 import {UserService} from "../../services/user.service";
@@ -32,18 +32,17 @@ export class ProfileComponent implements OnInit ,OnDestroy{
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.sub = this.activatedRoute.paramMap.subscribe( (params) =>
-      this.nickname = params.get('nickname')!
-    );
-    this.user$ = this.getUser(this.nickname!);
-    this.sharedPosts$ = this.user$?.pipe(switchMap((user)=>
-    this.getSharedPosts(user.userId!)
-      )
-    );
-    this.favoritedPosts$ = this.user$?.pipe(switchMap((user)=>
-        this.getFavoritedPosts(user.userId!)
-      )
-    );
+    this.sub = this.activatedRoute.paramMap.pipe(
+      tap((param) => {
+        this.nickname = param.get('nickname')!;
+        this.user$ = this.getUser(this.nickname).pipe(
+          tap((user)=>{
+            this.sharedPosts$ = this.getSharedPosts(user.userId!);
+            this.favoritedPosts$ = this.getFavoritedPosts(user.userId!)
+          })
+        )
+      }),
+    ).subscribe();
   }
   ngOnDestroy() {
     this.sub?.unsubscribe();
