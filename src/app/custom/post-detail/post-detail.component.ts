@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-post-detail',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-detail.component.scss']
 })
 export class PostDetailComponent implements OnInit {
-
-  constructor() { }
+  comments?: number[];
+  sub? : Subscription;
+  constructor(protected activatedRoute: ActivatedRoute) {
+    this.comments = Array(15).fill(0).map((v,i)=>i);
+  }
 
   ngOnInit(): void {
   }
