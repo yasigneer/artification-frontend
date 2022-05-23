@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginRegisterComponent},
   {path: 'home', component: FeedComponent},
   {path: 'comment', component: CommentComponent},
-  {path: 'post/:id', component: PostDetailComponent},
+  {path: 'post/:postId', component: PostDetailComponent},
   {path: ':nickname', component: ProfileComponent},
 ];
 
