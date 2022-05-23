@@ -1,17 +1,20 @@
-<div class="post-detail">
-  <div class="image-container"><img src="https://mtm-bitirme.s3.amazonaws.com/images/10/20220428000248"></div>
-  <div class="post-info">
-    <div class="user-info">
-      <img src="https://mtm-bitirme.s3.amazonaws.com/images/3/20220428001240" class="avatar">
-      <p class="nickname">Nickname</p>
+<ng-container *ngIf="post$ | async as post">
+  <div class="post-detail">
+    <div class="image-container"><img [src]="post.postPath"></div>
+    <div class="post-info">
+      <div class="user-info">
+        <img src="https://mtm-bitirme.s3.amazonaws.com/images/3/20220428001240" class="avatar">
+        <p class="nickname">{{post.nickName}}</p>
+      </div>
+      <p class="title">{{post.postTitle}}</p>
+      <p class="description">{{post.postDescription}}</p>
+      <label for="txtComment">
+        <textarea placeholder="Yorum yaz..." class="txt-input" id="txtComment" autocomplete="off"></textarea>
+      </label>
+      <ng-container *ngFor="let comment of comments$ | async">
+        <app-comment [comment]="comment"></app-comment>
+      </ng-container>
     </div>
-    <p class="title">Başlık</p>
-    <p class="description">SADNQWJDKQLDNASMÖDASMD ASDNJQKWLJNQWDÖMASDNA</p>
-    <label for="txtComment">
-      <textarea placeholder="Yorum yaz..." class="txt-input" id="txtComment" autocomplete="off"></textarea>
-    </label>
-    <ng-container *ngFor="let comment of comments">
-      <app-comment></app-comment>
-    </ng-container>
   </div>
-</div>
+
+</ng-container>

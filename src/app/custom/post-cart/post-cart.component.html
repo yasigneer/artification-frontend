@@ -1,6 +1,6 @@
 <div class="post-container" (mouseenter)="isHovered=true" (mouseleave)="isHovered=false">
   <div class="img-wrapper">
-    <img [src]="post.postPath" alt=''>
+    <img [routerLink]="'/post/'+post.postId" [src]="post.postPath" alt=''>
     <ng-container *ngIf="isHovered">
       <div class="img-info">
         <p class="title">{{post.postTitle}}</p>

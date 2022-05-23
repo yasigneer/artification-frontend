@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
+import {tap} from "rxjs/operators";
+
+import {Post} from "../../models/post.model";
+import {PostService} from "../../services/post.service";
+import {Review} from "../../models/review.model";
+import {ReviewService} from "../../services/review.service";
 
 @Component({
   selector: 'app-post-detail',
@@ -8,13 +14,23 @@ import {Subscription} from "rxjs";
   styleUrls: ['./post-detail.component.scss']
 })
 export class PostDetailComponent implements OnInit {
-  comments?: number[];
   sub? : Subscription;
-  constructor(protected activatedRoute: ActivatedRoute) {
-    this.comments = Array(15).fill(0).map((v,i)=>i);
-  }
+  postId?: number;
+  post$?: Observable<Post>
+  comments$?: Observable<Review[]>
+  constructor(
+    protected activatedRoute: ActivatedRoute,
+    protected postService: PostService,
+    protected reviewService: ReviewService) {}
 
   ngOnInit(): void {
+    this.sub = this.activatedRoute.paramMap.pipe(
+      tap((param)=> {
+        this.postId = Number(param.get('postId')!);
+        this.post$ = this.postService.getPostById(this.postId);
+        this.comments$ = this.reviewService.getCommentsById(this.postId);
+      })
+    ).subscribe()
   }
 
 }
