@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Observable, Subscription} from "rxjs";
-import {tap} from "rxjs/operators";
+import {BehaviorSubject, Observable, Subscription} from "rxjs";
+import {switchMap, tap} from "rxjs/operators";
 
 import {Post} from "../../models/post.model";
 import {PostService} from "../../services/post.service";
@@ -18,19 +18,26 @@ export class PostDetailComponent implements OnInit {
   postId?: number;
   post$?: Observable<Post>
   comments$?: Observable<Review[]>
+  isChanged$? : BehaviorSubject<Boolean>;
   constructor(
     protected activatedRoute: ActivatedRoute,
     protected postService: PostService,
     protected reviewService: ReviewService) {}
 
   ngOnInit(): void {
+    this.isChanged$ = new BehaviorSubject<Boolean>(true);
     this.sub = this.activatedRoute.paramMap.pipe(
       tap((param)=> {
         this.postId = Number(param.get('postId')!);
         this.post$ = this.postService.getPostById(this.postId);
-        this.comments$ = this.reviewService.getCommentsById(this.postId);
+        this.comments$ = this.isChanged$?.pipe(
+          switchMap(()=>this.reviewService.getCommentsById(this.postId!))
+        );
       })
-    ).subscribe()
+    ).subscribe();
+    this.isChanged$.subscribe(data => console.log(data));
   }
-
+  refreshComments(){
+    this.isChanged$?.next(true);
+  }
 }

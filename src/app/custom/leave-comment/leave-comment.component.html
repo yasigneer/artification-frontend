@@ -1,0 +1,13 @@
+<form [formGroup]="comment!" (ngSubmit)="leaveComment()">
+  <div>
+    <label for="txtComment">
+    <textarea
+      formControlName="commentMessage"
+      placeholder="Yorum yaz..."
+      class="txt-input" id="txtComment"
+      autocomplete="off">
+    </textarea>
+    </label>
+    <button [disabled]="!comment!.valid" type="submit" *ngIf="active" class="btn btn-primary">Paylaş</button>
+  </div>
+</form>

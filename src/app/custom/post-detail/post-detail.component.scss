@@ -7,7 +7,7 @@
   position: relative;
   color: $gray-blue-light;
   .image-container{
-    max-height: 640px;
+    height: 640px;
     width: 1024px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     cursor: zoom-in;
@@ -57,17 +57,6 @@
       padding-bottom: 8px;
       border-bottom: 1px solid $blue;
       margin-bottom: 8px;
-    }
-    label > textarea {
-      font-size: 0.85rem;
-      font-weight: 300;
-      max-width: 100%;
-      min-width: 100%;
-      max-height: 100px;
-      min-height: 100px;
-      border: 1px solid $blue;
-      caret-color: $gray-blue-light;
-      color: $gray-blue-light;
     }
   }
 }
