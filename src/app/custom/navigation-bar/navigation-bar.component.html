@@ -13,7 +13,7 @@
   <div class="nav-btn-container">
     <button (click)="openPostForm()" class="create-post"><span><i class="bi bi-cloud-plus"></i></span>Paylaş</button>
     <ng-container *ngIf="currentUser$ | async as user; else login">
-      <button (click)="logout()" class="btn btn-primary">Çıkış Yap</button>
+      <app-user-badge [user]="user"></app-user-badge>
     </ng-container>
     <ng-template #login>
       <button routerLink="/login" class="btn btn-primary">Giriş Yap</button>

@@ -1,0 +1,16 @@
+@import "src/styles";
+.avatar{
+  color: $blue;
+  background-color: $gray-blue-light;
+  display: grid;
+  place-content: center;
+  font-size: 1.25rem;
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  border-radius: 9999px;
+  transition: 0.5s all;
+  &:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+}

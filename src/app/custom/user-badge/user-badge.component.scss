@@ -1,0 +1,59 @@
+@import "src/styles";
+.current-user{
+  display: flex;
+  width: 148px;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 8px 12px;
+  position: relative;
+  transition: 0.5s ease-in;
+  &:hover{
+    transform: translateY(-5px);
+  }
+  .user-info{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    app-profile-photo{
+      width: 36px;
+      height: 36px;
+      margin-right: 16px;
+    }
+  }
+  .dropdown{
+    border-radius: 12px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 148px;
+    height: 64px;
+    top: 54px;
+    left: 0;
+    background-color: $main-blue;
+    box-shadow: 0 5px 10px $blue-light;
+    visibility: hidden;
+    &.active{
+      visibility: visible;
+    }
+    span{
+      cursor: pointer;
+      width: 100%;
+      padding: 0 12px;
+      display: flex;
+      justify-content: space-between;
+      transition: 0.5s ease-in;
+      &:not(:last-child){
+        margin-bottom: 8px;
+      }
+      &:hover{
+        transform: translateY(-5px);
+        color: $blue-light;
+      }
+      > p{
+        display: inline-flex;
+      }
+    }
+  }
+}

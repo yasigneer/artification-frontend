@@ -70,7 +70,4 @@ export class NavigationBarComponent implements  AfterViewInit {
   openPostForm(){
     this.dialog.open(PostFormComponent);
   }
-  logout(){
-    this.authService.logout();
-  }
 }

@@ -1,0 +1,13 @@
+<div (mouseenter)="isHovered=true" (mouseleave)="isHovered=false" class="current-user">
+  <div class="user-info">
+    <app-profile-photo
+      [profilePhoto]="user!.profilePhotoPath"
+      [nickname]="user!.nickName">
+    </app-profile-photo>
+    <p class="nickname">{{user!.nickName}}</p>
+  </div>
+  <div class="dropdown" [class]="isHovered?'active':''">
+    <span [routerLink]="'/'+user!.nickName"><p>Profil</p><i class="bi bi-person"></i></span>
+    <span (click)="logout()"><p>Çıkış Yap</p><i class="bi bi-box-arrow-right"></i></span>
+  </div>
+</div>

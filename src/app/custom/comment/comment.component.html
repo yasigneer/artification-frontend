@@ -1,8 +1,10 @@
 <div class="comment-container">
-  <div class="user-info">
-    <div class="avatar">
-      <img src="https://mtm-bitirme.s3.amazonaws.com/images/3/20220428001240" alt="">
-    </div>
+  <div [routerLink]="'/'+comment!.nickName" class="user-info">
+    <app-profile-photo
+      class="avatar"
+      [profilePhoto]="comment!.profilePhotoPath"
+      [nickname]="comment!.nickName">
+    </app-profile-photo>
     <p class="nickname">{{comment!.nickName}}</p>
   </div>
   <div class="comment">

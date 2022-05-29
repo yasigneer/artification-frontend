@@ -22,6 +22,8 @@ import { PostDetailComponent } from './custom/post-detail/post-detail.component'
 import { CommentComponent } from './custom/comment/comment.component';
 import { AddToFavoritesComponent } from './custom/add-to-favorites/add-to-favorites.component';
 import { LeaveCommentComponent } from './custom/leave-comment/leave-comment.component';
+import { ProfilePhotoComponent } from './custom/shared/profile-photo/profile-photo.component';
+import { UserBadgeComponent } from './custom/user-badge/user-badge.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { LeaveCommentComponent } from './custom/leave-comment/leave-comment.comp
     CommentComponent,
     AddToFavoritesComponent,
     LeaveCommentComponent,
+    ProfilePhotoComponent,
+    UserBadgeComponent,
   ],
     imports: [
         BrowserModule,

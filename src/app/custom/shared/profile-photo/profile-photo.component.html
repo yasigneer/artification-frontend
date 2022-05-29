@@ -1,0 +1,6 @@
+<ng-container *ngIf="hasPhoto; else letterPic">
+  <img class="avatar" [src]="profilePhoto" [alt]="nickname">
+</ng-container>
+<ng-template #letterPic>
+  <div class="avatar">{{nickname![0]}}</div>
+</ng-template>
