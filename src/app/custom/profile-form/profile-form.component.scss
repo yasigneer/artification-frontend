@@ -1,0 +1,90 @@
+@import "src/styles";
+form{
+  color: $gray-blue-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  .form-wrapper{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profile-photo{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 16px;
+      .update-avatar{
+        cursor: pointer;
+        border-radius: 9999px;
+        width: 192px;
+        height: 192px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $blue-light;
+        margin-right: 16px;
+        position: relative;
+        transition: 0.5s ease-in;
+        &:hover{
+          box-shadow: 0 0 10px $blue-light;
+        }
+        .current-avatar{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        .wrong-extension{
+          color: red;
+          font-size: 0.5rem;
+        }
+        i{
+          font-size: 3rem;
+          text-align: center;
+        }
+      }
+      button{
+        border: 1px solid $blue-light;
+        height: fit-content;
+      }
+    }
+    label {
+      width: 100%;
+      margin-bottom: 16px;
+      p{
+        margin-bottom: 8px;
+      }
+      textarea{
+        font-size: 0.85rem;
+        font-weight: 300;
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 100px;
+        min-height: 100px;
+        border: 1px solid $blue-light;
+        caret-color: $gray-blue-light;
+        color: $gray-blue-light;
+      }
+    }
+    .social-media{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      label{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        input{
+          border: 1px solid $blue-light;
+        }
+      }
+    }
+    button.submit{
+      align-self: flex-end;
+      background-color: $blue-light;
+    }
+  }
+}

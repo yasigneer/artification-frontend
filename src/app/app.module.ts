@@ -24,6 +24,7 @@ import { AddToFavoritesComponent } from './custom/add-to-favorites/add-to-favori
 import { LeaveCommentComponent } from './custom/leave-comment/leave-comment.component';
 import { ProfilePhotoComponent } from './custom/shared/profile-photo/profile-photo.component';
 import { UserBadgeComponent } from './custom/user-badge/user-badge.component';
+import { ProfileFormComponent } from './custom/profile-form/profile-form.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { UserBadgeComponent } from './custom/user-badge/user-badge.component';
     LeaveCommentComponent,
     ProfilePhotoComponent,
     UserBadgeComponent,
+    ProfileFormComponent,
   ],
     imports: [
         BrowserModule,

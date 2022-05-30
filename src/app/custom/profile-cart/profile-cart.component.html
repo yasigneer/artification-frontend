@@ -8,7 +8,14 @@
     <p class="nickname">{{user.nickName}}</p>
     <p class="description">{{user.description}}</p>
   </div>
-  <button class="btn">Profili Düzenle</button>
+  <ng-container *ngIf="currentUser$ | async as currentUser">
+    <button
+      *ngIf="currentUser.userId == user.userId"
+      (click)="openProfileForm(currentUser)"
+      class="btn">
+      Profili Düzenle
+    </button>
+  </ng-container>
   <div class="user-summary">
     <div class="count project-count"><p>Projeler</p><p>15</p></div>
     <div class="count fav-count"><p>Favoriler</p><p>5467</p></div>

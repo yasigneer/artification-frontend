@@ -2,12 +2,11 @@ import {AfterViewInit, Component, HostBinding} from '@angular/core';
 import {fromEvent, Observable} from "rxjs";
 import {distinctUntilChanged, filter, map, pairwise, share, throttleTime} from "rxjs/operators";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {MatDialog} from "@angular/material/dialog";
 
 import {User} from "../../models/user.model";
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
-import {MatDialog} from "@angular/material/dialog";
 import {PostFormComponent} from "../post-form/post-form.component";
+import {CurrentUserService} from "../../services/current-user.service";
 
 enum VisibilityState {
   Visible = 'visible',
@@ -39,9 +38,11 @@ enum Direction {
 })
 export class NavigationBarComponent implements  AfterViewInit {
   private isVisible: boolean = true;
-  public currentUser$?: Observable<User> = this.authService.currentUser$;
-  constructor(protected authService: AuthService, protected router: Router, protected dialog: MatDialog) {
-  }
+  public currentUser$?: Observable<User> = this.currentUserService.currentUser$;
+  constructor(
+    protected currentUserService: CurrentUserService,
+    protected dialog: MatDialog
+  ) {}
   @HostBinding('@toggle')
   get toggle(): VisibilityState{
     return this.isVisible? VisibilityState.Visible : VisibilityState.Hidden;

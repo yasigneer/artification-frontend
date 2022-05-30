@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 import {User} from "../../../../models/user.model";
 import {RegisterService} from "../../../../services/register.service";
@@ -11,7 +12,10 @@ import {RegisterService} from "../../../../services/register.service";
 })
 export class RegisterFormComponent implements OnInit {
 
-  constructor(protected formBuilder : FormBuilder, protected registerService: RegisterService) { }
+  constructor(
+    protected formBuilder : FormBuilder,
+    protected registerService: RegisterService,
+    protected router: Router) { }
   registerForm!:  FormGroup;
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -37,8 +41,6 @@ export class RegisterFormComponent implements OnInit {
       return;
     }
     let registerUser = this.initializeUser();
-    this.registerService.register(registerUser).subscribe(
-      data => console.log(data)
-    )
+    this.registerService.register(registerUser).subscribe();
   }
 }

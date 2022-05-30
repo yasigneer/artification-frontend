@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {BehaviorSubject, Observable, Subscription} from "rxjs";
 import {switchMap, tap} from "rxjs/operators";
@@ -13,7 +13,7 @@ import {ReviewService} from "../../services/review.service";
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.scss']
 })
-export class PostDetailComponent implements OnInit {
+export class PostDetailComponent implements OnInit, OnDestroy {
   sub? : Subscription;
   postId?: number;
   post$?: Observable<Post>
@@ -35,8 +35,12 @@ export class PostDetailComponent implements OnInit {
         );
       })
     ).subscribe();
-    this.isChanged$.subscribe(data => console.log(data));
+    this.isChanged$.subscribe();
   }
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+  }
+
   refreshComments(){
     this.isChanged$?.next(true);
   }

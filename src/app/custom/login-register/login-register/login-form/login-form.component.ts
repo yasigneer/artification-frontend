@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
-import {AuthService} from "../../../../services/auth.service";
 import {Observable} from "rxjs";
 import {User} from "../../../../models/user.model";
+import {CurrentUserService} from "../../../../services/current-user.service";
+import {AuthService} from "../../../../services/auth.service";
 
 @Component({
   selector: 'app-login-form',
@@ -13,10 +14,11 @@ import {User} from "../../../../models/user.model";
 })
 export class LoginFormComponent implements OnInit {
   loginUser!: FormGroup;
-  currentUser$?: Observable<User> = this.authService.currentUser$
+  currentUser$?: Observable<User> = this.currentUserService.currentUser$
 
   constructor(
     protected authService: AuthService,
+    protected currentUserService: CurrentUserService,
     protected fb: FormBuilder,
     protected router: Router
   ) { }
