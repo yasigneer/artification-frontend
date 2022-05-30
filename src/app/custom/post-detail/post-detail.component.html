@@ -2,8 +2,8 @@
   <div class="post-detail">
     <div class="image-container"><img [src]="post.postPath"></div>
     <div class="post-info">
-      <div class="user-info">
-        <img src="https://mtm-bitirme.s3.amazonaws.com/images/3/20220428001240" class="avatar">
+      <div [routerLink]="'/'+post.nickName" class="user-info">
+        <app-profile-photo class="avatar" [nickname]="post.nickName" [profilePhoto]="post.profilePhotoPath"></app-profile-photo>
         <p class="nickname">{{post.nickName}}</p>
       </div>
       <p class="title">{{post.postTitle}}</p>

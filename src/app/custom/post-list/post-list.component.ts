@@ -17,6 +17,6 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts = this.posts?.filter((post) => post.postPath!.includes(environment.cloudUrl))
+    this.posts = this.posts?.filter((post) => post.postPath!.includes(environment.cloudUrl)).reverse()
   }
 }

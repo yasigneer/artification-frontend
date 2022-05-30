@@ -1,11 +1,10 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable, Subscription} from "rxjs";
-import {switchMap, tap} from "rxjs/operators";
+import {tap} from "rxjs/operators";
 
 import {PostService} from "../../services/post.service";
 import {UserService} from "../../services/user.service";
-import {AuthService} from "../../services/auth.service";
 import {User} from "../../models/user.model";
 import {Post} from "../../models/post.model";
 import {FavoriteService} from "../../services/favorite.service";
@@ -27,7 +26,6 @@ export class ProfileComponent implements OnInit ,OnDestroy{
   constructor(
     protected postService: PostService,
     protected userService: UserService,
-    protected authService: AuthService,
     protected favoriteService: FavoriteService,
     private activatedRoute: ActivatedRoute) { }
 

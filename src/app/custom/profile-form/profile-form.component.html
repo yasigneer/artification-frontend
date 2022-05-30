@@ -1,0 +1,37 @@
+<form [formGroup]="userForm!" (ngSubmit)="updateUser()">
+  <div class="form-wrapper">
+    <div class="profile-photo">
+      <div (click)="photo.click()" class="update-avatar">
+        <ng-container *ngIf="isCloudURL">
+          <app-profile-photo
+            class="current-avatar"
+            [nickname]="data!.nickName"
+            [profilePhoto]="data!.profilePhotoPath">
+          </app-profile-photo>
+        </ng-container>
+        <p>Profil fotoğrafı</p>
+        <ng-container *ngIf="notImage">
+          <p class="wrong-extension">Lütfen jpg, jpeg veya png uzantılı bir dosya seçiniz</p>
+        </ng-container>
+        <i class="bi bi-image"></i>
+      </div>
+      <button type="button" (click)="photo.click()" class="btn btn-primary">Fotoğraf seç</button>
+      <input #photo (change)="handleChange($event)" type="file" hidden>
+    </div>
+    <label for="description">
+      <p>Biyografi</p>
+      <textarea formControlName="description" id="description" class="txt-input" placeholder="kendi hakkında 3-5 bir şey yazıver :)"></textarea>
+    </label>
+    <div class="social-media">
+      <label>
+        <p>Instagram</p>
+        <input class="txt-input" placeholder="nickname">
+      </label>
+      <label>
+        <p>Twitter</p>
+        <input class="txt-input" placeholder="nickname">
+      </label>
+    </div>
+    <button [disabled]="!userForm!.valid" class="btn btn-primary submit">Gönder</button>
+  </div>
+</form>

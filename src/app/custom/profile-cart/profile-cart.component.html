@@ -1,12 +1,21 @@
 <div class="profile-cart">
-  <div class="profile-photo">
-    <img src="https://pbs.twimg.com/profile_images/1503011405955575809/O_DUE5ew_400x400.jpg">
-  </div>
+  <app-profile-photo
+    [nickname]="user.nickName"
+    [profilePhoto]="user.profilePhotoPath"
+    class="profile-photo">
+  </app-profile-photo>
   <div class="user-info">
     <p class="nickname">{{user.nickName}}</p>
     <p class="description">{{user.description}}</p>
   </div>
-  <button class="btn">Profili Düzenle</button>
+  <ng-container *ngIf="currentUser$ | async as currentUser">
+    <button
+      *ngIf="currentUser.userId == user.userId"
+      (click)="openProfileForm(currentUser)"
+      class="btn">
+      Profili Düzenle
+    </button>
+  </ng-container>
   <div class="user-summary">
     <div class="count project-count"><p>Projeler</p><p>15</p></div>
     <div class="count fav-count"><p>Favoriler</p><p>5467</p></div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {LoginRegisterComponent} from "./custom/login-register/login-register/login-register.component";
+import {ProfileFormComponent} from "./custom/profile-form/profile-form.component";
 
 @Component({
   selector: 'app-root',

@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import {ReviewService} from "../../services/review.service";
-import {Review} from "../../models/review.model";
 import {switchMap, tap} from "rxjs/operators";
 import {Subscription} from "rxjs";
+
+import {ReviewService} from "../../services/review.service";
+import {Review} from "../../models/review.model";
+import {CurrentUserService} from "../../services/current-user.service";
 
 @Component({
   selector: 'app-leave-comment',
@@ -20,7 +21,7 @@ export class LeaveCommentComponent implements OnInit {
   sub? : Subscription;
   constructor(
     protected formBuilder: FormBuilder,
-    protected authService: AuthService,
+    protected currentUserService: CurrentUserService,
     protected reviewService: ReviewService) { }
 
   ngOnInit(): void {
@@ -29,9 +30,9 @@ export class LeaveCommentComponent implements OnInit {
     })
     this.sub = this.comment.get('commentMessage')?.valueChanges.pipe(
       tap(comment => {
-        this.active = comment.length > 2;
+        this.active = comment?.length > 2;
       }),
-      switchMap(()=> this.authService.currentUser$!),
+      switchMap(()=> this.currentUserService.currentUser$!),
       tap((user)=>this.currentUserId = user.userId!)
     ).subscribe();
   }

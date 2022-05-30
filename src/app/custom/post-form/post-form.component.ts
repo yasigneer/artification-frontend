@@ -2,11 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ValidatorService} from "../../services/validator.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
+import {MatDialogRef} from "@angular/material/dialog";
 
 import {User} from "../../models/user.model";
-import {AuthService} from "../../services/auth.service";
 import {PostService} from "../../services/post.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import {CurrentUserService} from "../../services/current-user.service";
 
 @Component({
   selector: 'app-post-form',
@@ -24,13 +24,13 @@ export class PostFormComponent implements OnInit, OnDestroy {
   imageValidator = this.validatorService.imageExtensionValidator;
 
   constructor(
-    protected authService: AuthService,
+    protected currentUserService: CurrentUserService,
     protected validatorService:ValidatorService,
     protected formBuilder: FormBuilder,
     protected postService: PostService,
     protected dialog: MatDialogRef<PostFormComponent>) { }
   ngOnInit(): void {
-    this.sub = this.authService.currentUser$?.subscribe(user => this.currentUser = user);
+    this.sub = this.currentUserService.currentUser$?.subscribe(user => this.currentUser = user);
     this.postForm = this.formBuilder.group({
       postTitle: ['',[Validators.required]],
       postDescription: ['',[Validators.required]],

@@ -6,16 +6,16 @@
   flex-direction: column;
   color: $gray-blue;
   .user-info{
+    cursor: pointer;
     width: 100%;
     display: flex;
     align-items: center;
     border-bottom: 1px solid $blue;
-    img{
+    padding: 4px 0;
+    .avatar{
       width: 36px;
-      min-height: 36px;
-      border-radius: 9999px;
-      object-fit: cover;
-      margin-right: 16px;
+      height: 36px;
+      margin-right: 8px;
     }
     .nickname{
       font-weight: 500;
