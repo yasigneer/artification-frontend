@@ -25,6 +25,7 @@ import { LeaveCommentComponent } from './custom/leave-comment/leave-comment.comp
 import { ProfilePhotoComponent } from './custom/shared/profile-photo/profile-photo.component';
 import { UserBadgeComponent } from './custom/user-badge/user-badge.component';
 import { ProfileFormComponent } from './custom/profile-form/profile-form.component';
+import { FooterComponent } from './custom/footer/footer.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ProfileFormComponent } from './custom/profile-form/profile-form.compone
     ProfilePhotoComponent,
     UserBadgeComponent,
     ProfileFormComponent,
+    FooterComponent,
   ],
     imports: [
         BrowserModule,

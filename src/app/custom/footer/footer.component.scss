@@ -1,0 +1,51 @@
+@import "src/styles";
+footer{
+  color: $dark-gray-blue;
+  width: 100%;
+  height: 128px;
+  box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
+  padding: 16px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  p{
+    font-size: 0.75rem;
+  }
+  .connections{
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    div{
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: 0.5s ease-in;
+      &:hover{
+        color: $gray-blue-light;
+      }
+      p{
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+      }
+      div{
+        display: flex;
+        flex-direction: row;
+        width: 75px;
+        justify-content: space-evenly;
+        a{
+          text-decoration: none;
+          i{
+            color: $gray-blue;
+            transition: 0.5s ease-in;
+            &:hover{
+              color: $gray-blue-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}
