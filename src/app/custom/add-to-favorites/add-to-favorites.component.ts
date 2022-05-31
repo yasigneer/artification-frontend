@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable, of} from "rxjs";
-import {switchMap} from "rxjs/operators";
 
 import {User} from "../../models/user.model";
 import {FavoriteService} from "../../services/favorite.service";
@@ -31,11 +30,6 @@ export class AddToFavoritesComponent implements OnInit {
     this.currentUserService.currentUser$?.subscribe((user: User) => this.currentUserID = user.userId!);
     this.favoritePost = this.setFavoritePost;
     this.likeCount = this.post?.likeCount;
-    if( this.context == 'action'){
-      this.isFavorited$ =  this.favoriteService.getUsersFavorites(this.currentUserID!).pipe(
-        switchMap((posts) => of(this.checkFavorited(posts)))
-      )
-    }
   }
   get setFavoritePost(): FavoritePost{
     return {
@@ -49,9 +43,5 @@ export class AddToFavoritesComponent implements OnInit {
         subscribe((users)=> this.likeCount = users.length)
       }
     );
-  }
-  checkFavorited(posts: Post[]) : boolean{
-    let ids = posts.map((post)=> post.postId);
-    return ids.includes(this.post?.postId);
   }
 }

@@ -1,0 +1,8 @@
+@import "src/styles";
+button.unfollow{
+  background-color: $blue-light;
+}
+button.follow{
+  background-color: inherit;
+  border: 1px solid $blue-light;
+}

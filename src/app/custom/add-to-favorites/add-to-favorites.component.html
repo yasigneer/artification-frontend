@@ -1,10 +1,5 @@
 <ng-container *ngIf="context == 'action'; else info">
-  <ng-container *ngIf="isFavorited$ | async; else empty">
-    <ng-container *ngTemplateOutlet="icon!; context:{ class: 'bi bi-bookmark-star-fill' }"></ng-container>
-  </ng-container>
-  <ng-template #empty>
-    <ng-container *ngTemplateOutlet="icon!; context:{ class: 'bi bi-bookmark-star' }"></ng-container>
-  </ng-template>
+  <ng-container *ngTemplateOutlet="icon!; context:{ class: 'bi bi-bookmark-star' }"></ng-container>
 </ng-container>
 <ng-template #info>
   <div class="reactions">

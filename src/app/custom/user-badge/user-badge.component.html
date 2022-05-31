@@ -5,6 +5,7 @@
       [nickname]="user!.nickName">
     </app-profile-photo>
     <p class="nickname">{{user!.nickName}}</p>
+    <i class="bi bi-three-dots"></i>
   </div>
   <div class="dropdown" [class]="isHovered?'active':''">
     <span [routerLink]="'/'+user!.nickName"><p>Profil</p><i class="bi bi-person"></i></span>

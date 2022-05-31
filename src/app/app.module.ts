@@ -26,6 +26,7 @@ import { ProfilePhotoComponent } from './custom/shared/profile-photo/profile-pho
 import { UserBadgeComponent } from './custom/user-badge/user-badge.component';
 import { ProfileFormComponent } from './custom/profile-form/profile-form.component';
 import { FooterComponent } from './custom/footer/footer.component';
+import { FollowButtonComponent } from './custom/follow-button/follow-button.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FooterComponent } from './custom/footer/footer.component';
     UserBadgeComponent,
     ProfileFormComponent,
     FooterComponent,
+    FollowButtonComponent,
   ],
     imports: [
         BrowserModule,

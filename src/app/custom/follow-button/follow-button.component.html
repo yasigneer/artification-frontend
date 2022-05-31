@@ -1,0 +1,6 @@
+<button
+  (click)="follow()"
+  class="btn btn-primary"
+  [class]="isFollowed?'unfollow':'follow'">
+  {{isFollowed?'Takip Ediliyor':'Takip Et'}}
+</button>

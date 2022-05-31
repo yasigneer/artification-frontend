@@ -45,7 +45,6 @@ export class ProfileFormComponent implements OnInit {
   }
   uploadImage(file: File){
     let avatar = document.querySelector('.update-avatar');
-    console.log(avatar)
     this.fileReader.onload = () => {
       let imageURL = this.fileReader.result;
       avatar!.innerHTML = `<img src="${imageURL}" alt="image" style="width: 100%; height: 100%; object-fit: cover; border-radius:9999px;">`;
