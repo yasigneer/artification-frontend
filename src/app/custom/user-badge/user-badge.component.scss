@@ -1,7 +1,6 @@
 @import "src/styles";
 .current-user{
   display: flex;
-  width: 148px;
   border-radius: 9999px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 8px 12px;
@@ -15,6 +14,12 @@
       width: 30px;
       height: 30px;
       margin-right: 16px;
+    }
+    p{
+      margin-right: 16px;
+    }
+    i{
+      color: $dark-gray-blue;
     }
   }
   .dropdown{

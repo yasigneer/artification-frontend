@@ -15,8 +15,16 @@
       class="btn">
       Profili Düzenle
     </button>
+    <app-follow-button
+      *ngIf="currentUser.userId != user.userId"
+      [userId]="user.userId"
+      [currentUserId]="currentUser.userId"
+    >
+    </app-follow-button>
   </ng-container>
   <div class="user-summary">
+    <div class="count follower-count"><p>Takipçiler</p><p>34</p></div>
+    <div class="count follow-count"><p>Takip Edilenler</p><p>1213</p></div>
     <div class="count project-count"><p>Projeler</p><p>15</p></div>
     <div class="count fav-count"><p>Favoriler</p><p>5467</p></div>
   </div>
