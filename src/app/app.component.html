@@ -1,2 +1,3 @@
-<app-navigation-bar *ngIf="showHeader"></app-navigation-bar>
+<app-navigation-bar *ngIf="showComponent"></app-navigation-bar>
 <router-outlet (activate)="determineComponent($event)"></router-outlet>
+<app-footer *ngIf="showComponent"></app-footer>

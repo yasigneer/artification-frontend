@@ -8,8 +8,8 @@ import {ProfileFormComponent} from "./custom/profile-form/profile-form.component
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showHeader = true;
+  showComponent = true;
   determineComponent(event: any){
-    this.showHeader = !(event instanceof LoginRegisterComponent);
+    this.showComponent = !(event instanceof LoginRegisterComponent);
   }
 }
