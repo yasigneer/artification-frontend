@@ -28,6 +28,8 @@ body{
   border: 1px groove $blue-light;
 }
 mat-dialog-container{
+  padding: 0 !important;
+  box-shadow: 0 0 50px $blue !important;
   background-color: $blue !important;
   border-radius: 16px !important;
 }

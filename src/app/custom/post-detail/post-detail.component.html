@@ -1,6 +1,6 @@
 <ng-container *ngIf="post$ | async as post">
   <div class="post-detail">
-    <div class="image-container"><img [src]="post.postPath"></div>
+    <div (click)="openZoomDialog(post.postPath!)" class="image-container"><img [src]="post.postPath"></div>
     <div class="post-info">
       <div [routerLink]="'/'+post.nickName" class="user-info">
         <app-profile-photo class="avatar" [nickname]="post.nickName" [profilePhoto]="post.profilePhotoPath"></app-profile-photo>

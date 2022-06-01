@@ -1,0 +1,19 @@
+figure{
+  background-position: 50% 50%;
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  overflow: hidden;
+  cursor: zoom-in;;
+  background-repeat: no-repeat;
+  img{
+    transition: opacity 0.5s;
+    display: block;
+    max-width: 840px;
+    height: auto;
+    max-height: 80vh;
+    &:hover{
+      opacity: 0;
+    }
+  }
+}
