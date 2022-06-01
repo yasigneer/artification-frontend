@@ -7,6 +7,8 @@ import {Post} from "../../models/post.model";
 import {PostService} from "../../services/post.service";
 import {Review} from "../../models/review.model";
 import {ReviewService} from "../../services/review.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ImageZoomComponent} from "../image-zoom/image-zoom.component";
 
 @Component({
   selector: 'app-post-detail',
@@ -22,7 +24,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   constructor(
     protected activatedRoute: ActivatedRoute,
     protected postService: PostService,
-    protected reviewService: ReviewService) {}
+    protected reviewService: ReviewService,
+    protected dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.isChanged$ = new BehaviorSubject<Boolean>(true);
@@ -40,7 +44,11 @@ export class PostDetailComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub?.unsubscribe();
   }
-
+  openZoomDialog(image: string){
+    this.dialog.open(ImageZoomComponent,{
+      data: image
+    })
+  }
   refreshComments(){
     this.isChanged$?.next(true);
   }
