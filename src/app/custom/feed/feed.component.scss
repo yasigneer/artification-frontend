@@ -1,6 +1,13 @@
+@import "src/styles";
 .feed{
-  .list-container{
-    margin-top: 72px;
-    padding: 16px 64px;
+  margin-top: 72px;
+  padding: 16px 64px;
+  .list-title{
+    font-size: 1.15rem;
+    color: $gray-blue-light;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgb(0 0 0 / 10%);
   }
 }
