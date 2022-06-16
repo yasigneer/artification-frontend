@@ -6,6 +6,7 @@ import {ProfileComponent} from "./custom/profile/profile.component";
 import {FeedComponent} from "./custom/feed/feed.component";
 import {CommentComponent} from "./custom/comment/comment.component";
 import {PostDetailComponent} from "./custom/post-detail/post-detail.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path: 'login', component: LoginRegisterComponent},
   {path: 'home', component: FeedComponent},
   {path: 'comment', component: CommentComponent},
-  {path: 'post/:postId', component: PostDetailComponent},
+  {path: 'post/:postId', component: PostDetailComponent, canActivate: [AuthGuard]},
   {path: ':nickname', component: ProfileComponent},
 ];
 
