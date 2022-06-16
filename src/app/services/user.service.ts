@@ -17,10 +17,13 @@ export class UserService {
   getUser(nickname: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/Details/${nickname}`);
   }
+  getUserDefault(nickname: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/Users/${nickname}`);
+  }
   updateUser(formData: FormData){
     return this.http.post(`${this.apiUrl}/Users/update`,formData).pipe(
       tap(()=>{
-        this.getUser(formData.get('nickName')!.toString()).subscribe((user)=> this.currentUserService.setUser(user))
+        this.getUserDefault(formData.get('nickName')!.toString()).subscribe((user)=> this.currentUserService.setUser(user))
       })
     );
   }

@@ -6,6 +6,7 @@ import {FavoriteService} from "../../services/favorite.service";
 import {FavoritePost} from "../../models/favorite-post.model";
 import {Post} from "../../models/post.model";
 import {CurrentUserService} from "../../services/current-user.service";
+import {MessageService} from "../../services/message.service";
 
 @Component({
   selector: 'app-add-to-favorites',
@@ -23,7 +24,8 @@ export class AddToFavoritesComponent implements OnInit {
   isFavorited$?: Observable<boolean>;
   constructor(
     protected favoriteService: FavoriteService,
-    protected currentUserService: CurrentUserService
+    protected currentUserService: CurrentUserService,
+    protected messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +42,7 @@ export class AddToFavoritesComponent implements OnInit {
   addFavorites(){
     this.favoriteService.addToFavorites(this.favoritePost!).subscribe(()=>{
         this.favoriteService.getPostsFavorites(this.post?.postId!).
-        subscribe((users)=> this.likeCount = users.length)
+        subscribe(()=> this.messageService.showSuccessMessage('Gönderi beğenilere eklendi'))
       }
     );
   }

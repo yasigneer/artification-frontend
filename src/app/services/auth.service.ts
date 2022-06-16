@@ -7,6 +7,7 @@ import {UserService} from "./user.service";
 import {environment} from "../../environments/environment";
 import {User} from "../models/user.model";
 import {CurrentUserService} from "./current-user.service";
+import {MessageService} from "./message.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthService {
   constructor(
     protected http: HttpClient,
     protected userService: UserService,
-    protected currentUserService: CurrentUserService
+    protected currentUserService: CurrentUserService,
+    protected messageService: MessageService
   ) {}
 
   login(loginUser:User){
@@ -25,6 +27,9 @@ export class AuthService {
         if(isLoginSucces) {
           this.userService.getUser(loginUser.nickName).subscribe((user)=>{
             this.currentUserService.setUser(user);
+            if(user.profilePhotoPath == null){
+              this.messageService.showInfoMessage('Profil sayfasından profil oluşturma işlemini tamamlayabilirsiniz.')
+            }
             return user;
           })
         }
