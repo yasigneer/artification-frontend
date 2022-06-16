@@ -15,3 +15,14 @@
     place-content: center;
   }
 }
+.empty-list{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: $dark-gray-blue;
+  img{
+    width: 256px;
+    margin-bottom: 16px;
+  }
+}

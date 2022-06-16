@@ -5,3 +5,9 @@
     </div>
   </ng-container>
 </div>
+<ng-container *ngIf="posts!.length <= 0">
+  <div class="empty-list">
+    <img src="assets/images/cat.png" alt="noPost">
+    <p> Gösterilecek bir şey yok, ilhama yol al :)</p>
+  </div>
+</ng-container>
