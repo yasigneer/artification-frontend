@@ -32,7 +32,9 @@ export class ProfileFormComponent implements OnInit {
       nickName: this.data!.nickName,
       profilePhotoPath: [this.data!.profilePhotoPath],
       image: [null],
-      description: [this.data!.description || '', Validators.required]
+      description: [this.data!.description || '', Validators.required],
+      twitter: this.data!.twitter || '',
+      instagram: this.data!.instagram || '',
     })
   }
   handleChange(event: any){
@@ -60,7 +62,7 @@ export class ProfileFormComponent implements OnInit {
       });
     this.userService.updateUser(this.formData).subscribe(()=>{
       this.dialogRef.close();
-      location.reload();
+      location.reload(true);
     });
   }
   get isCloudURL(): boolean{

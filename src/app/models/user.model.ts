@@ -5,5 +5,10 @@ export interface User {
   profilePhotoPath?: string,
   description?: string,
   passwordHashed?: string,
-  loginPassword?: string
+  loginPassword?: string,
+  twitter?: string,
+  instagram?: string,
+  postCount?: number,
+  followingCount? :number,
+  followerCount?: number
 }

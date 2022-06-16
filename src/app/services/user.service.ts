@@ -11,14 +11,14 @@ import {CurrentUserService} from "./current-user.service";
   providedIn: 'root'
 })
 export class UserService {
-  apiUrl: string = environment.apiUrl+'/Users';
+  apiUrl: string = environment.apiUrl;
   constructor(protected http: HttpClient, protected currentUserService: CurrentUserService) { }
 
   getUser(nickname: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${nickname}`);
+    return this.http.get<User>(`${this.apiUrl}/Details/${nickname}`);
   }
   updateUser(formData: FormData){
-    return this.http.post(`${this.apiUrl}/update`,formData).pipe(
+    return this.http.post(`${this.apiUrl}/Users/update`,formData).pipe(
       tap(()=>{
         this.getUser(formData.get('nickName')!.toString()).subscribe((user)=> this.currentUserService.setUser(user))
       })
