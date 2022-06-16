@@ -25,11 +25,11 @@
     <div class="social-media">
       <label>
         <p>Instagram</p>
-        <input class="txt-input" placeholder="nickname">
+        <input formControlName="instagram" class="txt-input" placeholder="nickname">
       </label>
       <label>
         <p>Twitter</p>
-        <input class="txt-input" placeholder="nickname">
+        <input formControlName="twitter" class="txt-input" placeholder="nickname">
       </label>
     </div>
     <button [disabled]="!userForm!.valid" class="btn btn-primary submit">Gönder</button>

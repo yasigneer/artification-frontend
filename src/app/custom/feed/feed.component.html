@@ -1,3 +1,18 @@
-<ng-container *ngIf="posts$ | async as posts">
-  <app-post-list [posts]="posts" class="feed"></app-post-list>
-</ng-container>
+<div class="feed">
+  <ng-container *ngIf="currentUser$ | async">
+    <ng-container *ngIf="followingPosts$ | async as posts">
+      <ng-container *ngIf="posts.length > 0">
+        <div class="list-title">Takip Edilenler</div>
+        <app-post-list [posts]="posts" class="feed"></app-post-list>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="topRatedPosts$ | async as posts">
+    <div class="list-title">Popüler Yayınlar</div>
+    <app-post-list [doNotReverse]="true" [posts]="posts" class="feed"></app-post-list>
+  </ng-container>
+  <ng-container *ngIf="newestPosts$ | async as posts">
+    <div class="list-title">En Yeniler</div>
+    <app-post-list [posts]="posts" class="feed"></app-post-list>
+  </ng-container>
+</div>

@@ -7,7 +7,10 @@
   min-height: 100vh;
   background-color: $dark-blue;
   color: $gray-blue-light;
-  background-position: center ;
+  background-position: center;
+  background-image: url('/assets/images/pattern.png');
+  background-blend-mode: soft-light;
+  background-repeat: repeat;
   .form{
     &-container{
       position: relative;
@@ -21,7 +24,7 @@
       height: 420px;
       background-color: $main-blue;
       top: 40px;
-      box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 50px rgb(0,0,0);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -46,7 +49,7 @@
       height: 100%;
       z-index: 1;
       background-color: $gray-blue-light;
-      box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+      box-shadow: 0 5px 80px rgba(0,0,0);
       transition: 0.5s ease-in-out;
       display: grid;
       place-content: center;

@@ -23,11 +23,17 @@ export class PostService {
   getPosts(): Observable<Post[]>{
     return this.httpClient.get<Post[]>(this.apiURL);
   }
+  getTopRatedPosts(): Observable<Post[]>{
+    return this.httpClient.get<Post[]>(this.apiURL+'/Top-rated');
+  }
   getPostById(postId: number): Observable<Post>{
     return this.httpClient.get<Post>(`${this.apiURL}/${postId}`);
   }
   getUserPosts(userId: number): Observable<Post[]>{
     return this.httpClient.get<Post[]>(`${this.apiURL}/Users/${userId}`);
+  }
+  getFollowingsPosts(userId: number): Observable<Post[]>{
+    return this.httpClient.get<Post[]>(`${this.apiURL}/Following/${userId}`);
   }
   sharePost(formData: FormData){
     return this.httpClient.post(this.apiURL,formData).pipe(

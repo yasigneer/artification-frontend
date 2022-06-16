@@ -33,4 +33,16 @@ mat-dialog-container{
   background-color: $blue !important;
   border-radius: 16px !important;
 }
+.snack-success{
+  color: $gray-blue-light;
+  background-color: $blue;
+}
+.snack-info{
+  color: $gray-blue-light;
+  background-color: $blue-light;
+}
+.snack-error{
+  color: $white;
+  background-color: #D0342C;
+}
 

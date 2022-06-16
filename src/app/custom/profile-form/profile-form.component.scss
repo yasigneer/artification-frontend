@@ -80,6 +80,8 @@ form{
         width: 40%;
         input{
           border: 1px solid $blue-light;
+          caret-color: $gray-blue-light;
+          color: $gray-blue-light;
         }
       }
     }

@@ -6,6 +6,7 @@ import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
 import {ValidatorService} from "../../services/validator.service";
 import {environment} from "../../../environments/environment";
+import {MessageService} from "../../services/message.service";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class ProfileFormComponent implements OnInit {
     protected userService: UserService,
     protected validatorService: ValidatorService,
     protected dialogRef: MatDialogRef<ProfileFormComponent>,
+    protected messageService: MessageService,
     @Inject(MAT_DIALOG_DATA) public data?: User
   ) { }
 
@@ -32,7 +34,9 @@ export class ProfileFormComponent implements OnInit {
       nickName: this.data!.nickName,
       profilePhotoPath: [this.data!.profilePhotoPath],
       image: [null],
-      description: [this.data!.description || '', Validators.required]
+      description: [this.data!.description || '', Validators.required],
+      twitter: this.data!.twitter || '',
+      instagram: this.data!.instagram || '',
     })
   }
   handleChange(event: any){

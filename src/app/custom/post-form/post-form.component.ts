@@ -34,7 +34,7 @@ export class PostFormComponent implements OnInit, OnDestroy {
     this.postForm = this.formBuilder.group({
       postTitle: ['',[Validators.required]],
       postDescription: ['',[Validators.required]],
-      file: [null],
+      file: [null,[Validators.required]],
       userId: this.currentUser.userId!
     })
   }

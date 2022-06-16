@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 
 import {User} from "../../../../models/user.model";
 import {RegisterService} from "../../../../services/register.service";
+import {MessageService} from "../../../../services/message.service";
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +16,9 @@ export class RegisterFormComponent implements OnInit {
   constructor(
     protected formBuilder : FormBuilder,
     protected registerService: RegisterService,
-    protected router: Router) { }
+    protected router: Router,
+    protected messageService: MessageService
+  ) { }
   registerForm!:  FormGroup;
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -37,10 +40,17 @@ export class RegisterFormComponent implements OnInit {
   }
   register(){
     if(!this.checkValidForm()){
-      console.log('Paralolar eşleşmemekte');
+      this.messageService.showErrorMessage('Parolalar Eşleşmemekte')
       return;
     }
     let registerUser = this.initializeUser();
-    this.registerService.register(registerUser).subscribe();
+    this.registerService.register(registerUser).subscribe((registerSuccess)=>{
+      if(registerSuccess){
+        this.messageService.showSuccessMessage('Hesabınız oluşturuldu, giriş yapabilirsiniz')
+      }
+      else{
+        this.messageService.showErrorMessage('Kullanıcı adı sistemde mevcut, lütfen başka bir kullanıcı adı seçiniz')
+      }
+    });
   }
 }

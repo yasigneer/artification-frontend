@@ -24,7 +24,7 @@
   </div>
   <div class="btn-container">
     <button mat-dialog-close class="btn btn-primary btn-cancel">Vazgeç</button>
-    <button type="submit" class="btn btn-primary btn-submit">
+    <button [disabled]="!postForm.valid" type="submit" class="btn btn-primary btn-submit">
       Paylaş
     </button>
   </div>

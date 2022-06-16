@@ -1,10 +1,10 @@
 <form [formGroup]="loginUser" (ngSubmit)="login()">
   <label for="txtNickName">
-    <p>Nickname</p>
+    <p>Kullanıcı Adı</p>
     <input formControlName="nickName" class="txt-input" id="txtNickName" type="text" autocomplete="off">
   </label>
   <label for="txtPassword">
-    <p>Password</p>
+    <p>Şifre</p>
     <input formControlName="passwordHashed" class="txt-input" id="txtPassword" type="password" autocomplete="off">
   </label>
   <button [disabled]="!loginUser.valid" class="btn btn-secondary">
